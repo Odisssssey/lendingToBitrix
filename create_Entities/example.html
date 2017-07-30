@@ -1,0 +1,85 @@
+<html>
+<head>
+	<title>TEST bit</title>
+</head>
+<body>
+
+<form class="popup-diagonsics__form" name="popup-diagonsics">
+	<p class="popup-diagnostics__title">Заявка на диагностику и восстановление</p>
+	<div class="popup-diagnostics__inputs-wrapper">
+		<div class="popup-diagnostics__inputs-inner">
+			<div class="text-field js-text-field popup-diagnostics__text-field-inner">
+				<div class="text-field__title popup-diagnostics__input-caption">Представьтесь, пожалуйста</div>
+				<label class="text-field__label" for="popup-diagnostics-name">Представьтесь, пожалуйста</label>
+				<input class="text-field__input js-text-field__input popup-diagnostics__input" type="text" id="popup-diagnostics-name">
+			</div>
+		</div>
+		<div class="popup-diagnostics__inputs-inner">
+			<div class="text-field js-text-field popup-diagnostics__text-field-inner">
+				<div class="text-field__title popup-diagnostics__input-caption">Электронный адрес</div>
+				<label class="text-field__label" for="popup-diagnostics-mail">Электронный адрес</label>
+				<input class="text-field__input js-text-field__input popup-diagnostics__input" type="text" id="popup-diagnostics-mail">
+			</div>
+		</div>
+		<div class="popup-diagnostics__inputs-inner">
+			<div class="text-field js-text-field popup-diagnostics__text-field-inner">
+				<div class="text-field__title popup-diagnostics__input-caption">Телефон</div>
+				<label class="text-field__label" for="popup-diagnostics-phone">Телефон</label>
+				<input class="text-field__input js-text-field__input popup-diagnostics__input" type="text" id="popup-diagnostics-phone">
+			</div>
+		</div>
+		<div class="popup-diagnostics__dropdown popup-diagnostics__inputs-inner popup-diagnostics__inputs-inner--select">
+			<select class="popup-diagnostics__dropdown-select js-dropdown-battery-type">
+				<option class="popup-diagnostics__dropdown-option"></option>
+				<option class="popup-diagnostics__dropdown-option">Тип аккумулятора 1</option>
+				<option class="popup-diagnostics__dropdown-option">Тип аккумулятора 2</option>
+				<option class="popup-diagnostics__dropdown-option">Тип аккумулятора 3</option>
+				<option class="popup-diagnostics__dropdown-option">Тип аккумулятора 4</option>
+			</select>
+		</div>
+		<div class="popup-diagnostics__dropdown popup-diagnostics__inputs-inner popup-diagnostics__inputs-inner--select">
+			<select class="popup-diagnostics__dropdown-select js-dropdown-battery-voltage">
+				<option class="popup-diagnostics__dropdown-option"></option>
+				<option class="popup-diagnostics__dropdown-option">Напряжение аккумулятора 1</option>
+				<option class="popup-diagnostics__dropdown-option">Напряжение аккумулятора 2</option>
+				<option class="popup-diagnostics__dropdown-option">Напряжение аккумулятора 3</option>
+				<option class="popup-diagnostics__dropdown-option">Напряжение аккумулятора 4</option>
+			</select>
+		</div>
+		<div class="popup-diagnostics__dropdown popup-diagnostics__inputs-inner popup-diagnostics__inputs-inner--select">
+			<select class="popup-diagnostics__dropdown-select js-dropdown-battery-capacity">
+				<option class="popup-diagnostics__dropdown-option"></option>
+				<option class="popup-diagnostics__dropdown-option">Емкость аккумулятора 1</option>
+				<option class="popup-diagnostics__dropdown-option">Емкость аккумулятора 2</option>
+				<option class="popup-diagnostics__dropdown-option">Емкость аккумулятора 3</option>
+				<option class="popup-diagnostics__dropdown-option">Емкость аккумулятора 4</option>
+			</select>
+		</div>
+		<div class="popup-diagnostics__inputs-inner popup-diagnostics__inputs-inner--textarea">
+			<div class="text-field js-text-field popup-diagnostics__text-field">
+				<div class="text-field__title popup-diagnostics__input-caption">Комментарий</div>
+				<label class="text-field__label popup-diagnostics__label" for="popup-diagnostics-comment">Комментарий</label>
+				<textarea class="text-field__input js-text-field__input popup-diagnostics__textarea" id="popup-diagnostics-comment"></textarea>
+			</div>
+		</div>
+		<div class="popup-diagnostics__checkbox-wrapper">
+			<div class="checkbox"><span class="checkbox__custom-checkbox-wrap">
+  <input class="checkbox__custom-checkbox-input" type="checkbox" id="popup-diagnostics-agreement" name="popup-diagnostics-agreement"><span class="checkbox__custom-checkbox-inner">
+	<svg class="checkbox__custom-checkbox-icon">
+	  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="icons/sprite.svg#check"></use>
+	</svg></span>
+				<svg class="checkbox__custom-checkbox-border">
+					<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="icons/sprite.svg#checkbox-border"></use>
+				</svg>
+				</span>
+				<label class="checkbox__label" for="popup-diagnostics-agreement">Подтверждаю согласие на обработку моих<a class="checkbox__label-link js-personal-data-open">персональных данных</a>
+				</label>
+			</div>
+		</div>
+	</div>
+	<div class="popup-diagnostics__button-wrap">
+		<button class="button popup-diagnostics__button js-popup-diagnostics-submit">Отправить заявку</button>
+	</div>
+</form>
+</body>
+</html>
