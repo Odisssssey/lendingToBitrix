@@ -11,20 +11,19 @@ function actionTag($tag, $renameTags, $f){
     $allPropTag = explode(" ",$tag);
     $TegName = $allPropTag[0];
 
+    $text = "\n"."<".$tag.">";
+
     foreach ($renameTags[0] as $key=>$tagChenge){
         if ($TegName == $tagChenge){
             fwrite($f, $renameTags[2][$key]);
 
             $text = "\n"."<".$tag." ".$renameTags[1][$key].">";
 
-
-
-        }else{
-            $text = "\n"."<".$tag.">";
         }
 
-        fwrite($f, $text);
     }
+
+    fwrite($f, $text);
 
 
 }
