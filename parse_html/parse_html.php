@@ -92,7 +92,7 @@ function parseHtml($html, $needblock, $needMegaBlock){
             $keyFile++;
 
             if (isset($needMegaBlock[0][$keyFile])) {
-                $f = closeFile($f);
+                closeFile($f);
                 $f = createFile($needMegaBlock[1][$keyFile]);
             }
 
@@ -108,7 +108,7 @@ function parseHtml($html, $needblock, $needMegaBlock){
         }
     }
 
-    $f = closeFile($f);
+    closeFile($f);
 }
 
 
