@@ -6,6 +6,16 @@
  * Time: 20:14
  */
 
+function createFile($name){
+    $file = $name.".php";
+    $f = fopen($file, 'w+');
+    return $f;
+}
+
+function closeFile($f){
+    return fclose($f);
+}
+
 function valBlock($tag, $valBlock, $needblock){
     $allPropTag = explode(" ",$tag);
     $TegName = $allPropTag[0];
@@ -24,6 +34,20 @@ function valBlock($tag, $valBlock, $needblock){
     }
 
     return $valBlock;
+}
+
+function isNewMegaBlock($tag, $needMegaBlock , $isNewMegaBlock){
+    $allPropTag = explode(" ",$tag);
+    $TegName = $allPropTag[0];
+
+
+    foreach ($needMegaBlock[0] as $needName){
+        if($TegName == "/".$needName){
+            $isNewMegaBlock = 1;
+        }
+    }
+
+    return $isNewMegaBlock;
 }
 
 function parsePropertyTag($key, $tag){
@@ -48,12 +72,33 @@ function getBlok($tag, $valBlock){
     return $valBlock;
 }
 
-function parseHtml($html, $needblock){
+
+function parseHtml($html, $needblock, $needMegaBlock){
     preg_match_all ( '/<([^>]+)>/i' , $html , $tags); //все теги
 
     $valBlock = 0;
+    $isNewMegaBlock = 0;
+    $keyFile = 0;
+
+    $f = createFile($needMegaBlock[1][$keyFile]);
 
     foreach ($tags[1] as $key=>$tag){
+
+        fwrite($f, $tags[0][$key]);
+
+        $isNewMegaBlock = isNewMegaBlock($tag, $needMegaBlock , $isNewMegaBlock);
+
+        if($isNewMegaBlock == 1) {
+            $keyFile++;
+
+            if (isset($needMegaBlock[0][$keyFile])) {
+                $f = closeFile($f);
+                $f = createFile($needMegaBlock[1][$keyFile]);
+            }
+
+            $isNewMegaBlock = 0;
+        }
+
         $valBlock = valBlock($tag, $valBlock, $needblock);
 
         $valBlock = getBlok($tag, $valBlock);
@@ -62,14 +107,17 @@ function parseHtml($html, $needblock){
             parsePropertyTag($key, $tag);
         }
     }
+
+    $f = closeFile($f);
 }
 
 
 $html = file_get_contents("http://university.netology.ru/user_data/tarutin/bitrix/index.html");
 
 $needblock = ["form", "nav"];
+$needMegaBlock = [["header", "main", "footer"], ["header.php", "index.php", "footer.php"]];
 
-parseHtml($html, $needblock);
+parseHtml($html, $needblock, $needMegaBlock);
 
 
 //preg_match_all ( '/<([^>]+)>/i' , $html , $tags); //все теги без значений
