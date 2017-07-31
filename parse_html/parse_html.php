@@ -6,25 +6,38 @@
  * Time: 20:14
  */
 
+function parsePropertyTag($key, $tag){
+    $allPropTag = explode(" ",$tag);
+    $TegName = $allPropTag[0];
+    preg_match_all('/[ ]+([^= ]+)[="]+([\w- ]+)["]+/i', $tag, $property);
+    print_r($property);
+
+}
+
+function parseHtml($html){
+    preg_match_all ( '/<([^>]+)>/i' , $html , $tags); //все теги
+
+    foreach ($tags[1] as $key=>$tag){
+        if (count(explode(" ",$tag)) > 1){
+            parsePropertyTag($key, $tag);
+        }
+    }
+}
+
+
 $html = file_get_contents("http://university.netology.ru/user_data/tarutin/bitrix/index.html");
 
 
-$dom = new DOMDocument;
+//$dom = new DOMDocument;
+//
+//$dom->loadHTML($html);
 
-$dom->loadHTML($html);
-
-
-preg_match_all ( '/<([^>]+)>/i' , $html , $tags); //все теги
-
+parseHtml($html);
 
 
-preg_match_all ( '/(<[^>]+?[^>]+>)(.*?)<[^>]+?[^>]+>/i' , $html , $variable); // значения тегов
+//preg_match_all ( '/<([^>]+)>/i' , $html , $tags); //все теги без значений
 
-$str = explode(" ", $tags[1][7]);
-var_dump($str);
-preg_match_all ( '/([^=]+)[="]+([\w-]+)["]+/i' , $str[1] , $property); //
+//preg_match_all ( '/(<[^>]+?[^>]+>)(.*?)<[^>]+?[^>]+>/i' , $html , $variable); // значения тегов
 
+//preg_match_all ( '/([^=]+)[="]+([\w-]+)["]+/i' , $str[1] , $property); //
 
-print_r($tags[1][7]);
-//print_r($variable);
-print_r($property);
