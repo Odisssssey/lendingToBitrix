@@ -69,7 +69,7 @@ $insertAfterTegs = ['<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !
 
 $renameTags = [$tegsNeedChenge, $whoNeedChengeInTegs, $insertAfterTegs];
 
-startCreateFileTemplate($html, $templateTags, $renameTags);
+startCreateFileTemplate($html, implode(" ", $templateTags[0]), $renameTags);
 
 
 

@@ -35,7 +35,7 @@ function searchForRepetitions($tags){
 }
 
 function printTemplate($tags ,$tagInScope){
-    $templateTags = [];
+    $templateTags = [[], []];
     $tagInStack = [];
     foreach ($tags[1] as $key=>$tag){
         $inScope = 0;
@@ -68,14 +68,16 @@ function printTemplate($tags ,$tagInScope){
             }
             if ($tag == $noTag) {
                 array_pop($tagInStack);
+                array_push($templateTags[1], $tags[0][$key]);
             }else {
-                array_push($templateTags, $tags[0][$key]);
-                //echo $tags[0][$key] . "\n";
+                array_push($templateTags[0], $tags[0][$key]);
             }
+        }else{
+            array_push($templateTags[1], $tags[0][$key]);
         }
 
     }
-    return implode(" ", $templateTags);
+    return $templateTags;
 }
 
 function startCreateFile($html){
