@@ -64,9 +64,9 @@ $html = file_get_contents("http://university.netology.ru/user_data/tarutin/bitri
 
 $tegsNeedChenge = ["form", "input"];
 
-$whoNeedChengeInTegs = ['action="<?= POST_FORM_ACTION_URI ?>" method="post"', ''];
+$whoNeedChengeInTegs = ['action="<?= POST_FORM_ACTION_URI ?>" method="post" id="iblock_add_request_call"', ''];
 
-$insertAfterTegs = ['<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) { die(); } use Bitrix\Main\Localization\Loc; Loc::loadMessages(__FILE__); $this->setFrameMode(true); ?>',
+$insertAfterTegs = ['<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) { die(); } use Bitrix\Main\Localization\Loc; Loc::loadMessages(__FILE__); $this->setFrameMode(true); ?><? if ($arResult["AJAX_CALL"]) : $APPLICATION->RestartBuffer(); endif;<? if ($arResult["AJAX_CALL"]) : $APPLICATION->RestartBuffer(); endif; ?>',
     ''];
 
 $renameTags = [$tegsNeedChenge, $whoNeedChengeInTegs, $insertAfterTegs];
@@ -80,4 +80,4 @@ startCreateFile($html, $renameTags);
 
 //preg_match_all ( '/(<[^>]+?[^>]+>)(.*?)<[^>]+?[^>]+>/i' , $html , $variable); // значения тегов
 
-//preg_match_all ( '/([^=]+)[="]+([\w-]+)["]+/i' , $str[1] , $property); //
+//; //preg_match_all ( '/([^=]+)[="]+([\w-]+)["]+/i' , $str[1] , $property)
