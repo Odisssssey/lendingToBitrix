@@ -5,6 +5,8 @@
  * Date: 31.07.2017
  * Time: 17:43
  */
+require_once('block_for_row.php');
+
 
 function actionTag($tag, $renameTags, $f){
 
@@ -32,27 +34,23 @@ function writeTagWithText($text, $f){
     fwrite($f, $text);
 }
 
-function startCreateFile($html, $renameTags){
-    preg_match_all ( '/<([^>]+)>/i' , $html , $tags);
+function startCreateFileTemplate($html, $templateTags, $renameTags){
+    preg_match_all ( '/<([^>]+)>/i' , $templateTags , $tags);
     print_r($tags);
     preg_match_all ( '/(<[^>]+?[^>]+>)(.*?)<[^>]+?[^>]+>/i' , $html , $variable);
     print_r($variable);
 
     $f = fopen("template.php", 'w+');
 
-    $keyVariable = 0;
 
     foreach ($tags[0] as $key=>$tag){
 
         actionTag($tags[1][$key], $renameTags, $f);
 
-        if(isset($variable[1][$keyVariable])) {
+        if(in_array($tag, $variable[1])){
+            $findKey = array_search($tag, $variable[1]);
+            writeTagWithText($variable[2][$findKey], $f);
 
-            if ($tag == $variable[1][$keyVariable]) {
-                writeTagWithText($variable[2][$keyVariable], $f);
-
-                $keyVariable++;
-            }
         }
 
     }
@@ -60,7 +58,7 @@ function startCreateFile($html, $renameTags){
     fclose($f);
 }
 
-$html = file_get_contents("http://university.netology.ru/user_data/tarutin/bitrix/index.html");
+$templateTags = startCreateFile($html);  //in block_for_row file
 
 $tegsNeedChenge = ["form", "input"];
 
@@ -71,7 +69,7 @@ $insertAfterTegs = ['<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !
 
 $renameTags = [$tegsNeedChenge, $whoNeedChengeInTegs, $insertAfterTegs];
 
-startCreateFile($html, $renameTags);
+startCreateFileTemplate($html, $templateTags, $renameTags);
 
 
 

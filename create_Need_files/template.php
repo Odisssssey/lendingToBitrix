@@ -3,23 +3,9 @@
 <p class="popup-cost-calc__title">Расчет стоимости восстановления аккумулятора
 </p>
 <div class="popup-cost-calc__inputs-wrapper">
-<div class="popup-cost-calc__inputs-inner">
-<div class="text-field js-text-field popup-cost-calc__text-field-inner">
-<div class="text-field__title popup-cost-calc__input-caption">Представьтесь, пожалуйста
-</div>
-<label class="text-field__label" for="popup-cost-calc-name">Представьтесь, пожалуйста
-</label>
-<input class="text-field__input js-text-field__input popup-cost-calc__input" type="text" id="popup-cost-calc-name" >
-</div>
-</div>
-<div class="popup-cost-calc__inputs-inner">
-<div class="text-field js-text-field popup-cost-calc__text-field-inner">
-<div class="text-field__title popup-cost-calc__input-caption">Электронный адрес
-</div>
-<label class="text-field__label" for="popup-cost-calc-mail">Электронный адрес
-</label>
-<input class="text-field__input js-text-field__input popup-cost-calc__input" type="text" id="popup-cost-calc-mail" >
-</div>
+<div class="popup-cost-calc__button-wrap">
+<button class="button popup-cost-calc__button js-popup-cost-calc-submit">Отправить заявку
+</button>
 </div>
 </div>
 </form>

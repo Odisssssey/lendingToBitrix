@@ -35,6 +35,7 @@ function searchForRepetitions($tags){
 }
 
 function printTemplate($tags ,$tagInScope){
+    $templateTags = [];
     $tagInStack = [];
     foreach ($tags[1] as $key=>$tag){
         $inScope = 0;
@@ -51,7 +52,6 @@ function printTemplate($tags ,$tagInScope){
                     $findKey = array_search($property[2][$keyProp], $tagInScope[0]);
                     if($tagInScope[1][$findKey] !== "input"){
                         array_push($tagInStack, $tagInScope[1][$findKey]);
-                        //echo "+++".$tagInScope[1][$findKey]."\n";
                     }
 
                 }
@@ -69,11 +69,13 @@ function printTemplate($tags ,$tagInScope){
             if ($tag == $noTag) {
                 array_pop($tagInStack);
             }else {
-                echo $tags[0][$key] . "\n";
+                array_push($templateTags, $tags[0][$key]);
+                //echo $tags[0][$key] . "\n";
             }
         }
 
     }
+    return implode(" ", $templateTags);
 }
 
 function startCreateFile($html){
@@ -81,10 +83,9 @@ function startCreateFile($html){
 
     $tagInScope = searchForRepetitions($tags);
 
-    printTemplate($tags ,$tagInScope);
+    $templateTags = printTemplate($tags ,$tagInScope);
 
-
-    print_r($tagInScope);
+    return $templateTags;
 }
 
 $html = file_get_contents("http://university.netology.ru/user_data/tarutin/bitrix/index.html");
