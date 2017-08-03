@@ -1,0 +1,34 @@
+{
+  "frmbi": {
+    "addInTag": ["action='<?= POST_FORM_ACTION_URI ?>'",
+      "method='post'",
+      "id='iblock_add_request_call'"
+    ],
+    "insertBefore": [
+      "<? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) { die(); } use Bitrix/Main/Localization/Loc; Loc::loadMessages(__FILE__); $this->setFrameMode(true); ?>",
+      "<? if ($arResult['AJAX_CALL']) : $APPLICATION->RestartBuffer(); endif;<? if ($arResult['AJAX_CALL']) : $APPLICATION->RestartBuffer(); endif; ?>"
+    ],
+    "insertAfter": [
+
+    ]
+  },
+  "fehbi": {
+    "addInTag": [],
+    "insertBefore": [
+
+    ],
+    "insertAfter": [
+      "<input type='hidden' name='iblock_submit' value='Y'/> <input type='hidden' name='form_<?= $arParams['ORM_ID'] ?>' value='Y'/> <?= bitrix_sessid_post() ?>']",
+      "<?= bitrix_sessid_post() ?>",
+      "<? foreach ($arResult['GROUPS'] as $group) : ?>",
+      "<? foreach ($group['FIELDS'] as $arProperty) :  CDFASiteTemplateTools::IncludeFile('form-diagnostic-row.php', array( 'arProperty' => $arProperty, 'params'   => $arParams, 'fieldClass' => 'js-field-title', )); ?>",
+      "<? endforeach ?>",
+      "<? endforeach ?> "
+    ]
+  },
+  "end": {
+    "insertAfter": [
+      "<? if ($arResult['AJAX_CALL']) { die(); } ?>"
+    ]
+  }
+}

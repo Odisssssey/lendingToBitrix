@@ -8,66 +8,87 @@
 require_once('block_for_row.php');
 
 
-function actionTag($tag, $renameTags, $f){
+function actionTag($tag, $renameTags, $f, $bitClass){
 
-    $allPropTag = explode(" ",$tag);
-    $TegName = $allPropTag[0];
+    if(isset($renameTags->$bitClass)){
 
-    $text = "\n"."<".$tag.">";
-
-    foreach ($renameTags[0] as $key=>$tagChenge){
-        if ($TegName == $tagChenge){
-            fwrite($f, $renameTags[2][$key]);
-
-            $text = "\n"."<".$tag." ".$renameTags[1][$key].">";
-
+        foreach ($renameTags->$bitClass->insertBefore as $insertBefore){
+            $textInsertBefore = "\n".$insertBefore;
+            fwrite($f, $textInsertBefore);
         }
 
+
+        $textTag = "\n"."<".$tag;
+        foreach ($renameTags->$bitClass->addInTag as $addInTag){
+            $textTag .= " ".$addInTag;
+        }
+        $textTag .= ">";
+        fwrite($f, $textTag);
+
+        foreach ($renameTags->$bitClass->insertAfter as $insertAfter){
+            $textInsertAfter = "\n".$insertAfter;
+            fwrite($f, $textInsertAfter);
+        }
+
+    }else{
+        $textTag = "\n"."<".$tag.">";
+        fwrite($f, $textTag);
     }
-
-    fwrite($f, $text);
-
 
 }
 
-function writeTagWithText($text, $f){
-    fwrite($f, $text);
+function writeEndText($renameTags, $f){
+    if(isset($renameTags->end->insertAfter)){
+        foreach ($renameTags->end->insertAfter as $endTag){
+            $textEndTag = "\n".$endTag;
+            fwrite($f, $textEndTag);
+        }
+    }
+}
+
+function serthBitClass($tag, $renameTags)
+{
+    preg_match_all('/class[="]+([\w]+)/i', $tag, $tags);
+
+    foreach ($tags[1] as $needTag) {
+        if (isset($renameTags->$needTag)) {
+            return $needTag;
+        }
+    }
+
+    return 0;
 }
 
 function startCreateFileTemplate($html, $templateTags, $renameTags){
     preg_match_all ( '/<([^>]+)>/i' , $templateTags , $tags);
-    print_r($tags);
+
     preg_match_all ( '/(<[^>]+?[^>]+>)(.*?)<[^>]+?[^>]+>/i' , $html , $variable);
-    print_r($variable);
+
 
     $f = fopen("template.php", 'w+');
 
 
     foreach ($tags[0] as $key=>$tag){
 
-        actionTag($tags[1][$key], $renameTags, $f);
+        $bitClass = serthBitClass($tags[1][$key], $renameTags);
+
+        actionTag($tags[1][$key], $renameTags, $f, $bitClass);
 
         if(in_array($tag, $variable[1])){
             $findKey = array_search($tag, $variable[1]);
-            writeTagWithText($variable[2][$findKey], $f);
+            fwrite($f, $variable[2][$findKey]);
 
         }
 
     }
 
+    writeEndText($renameTags, $f);
     fclose($f);
 }
 
 $templateTags = startCreateFile($html);  //in block_for_row file
 
-$tegsNeedChenge = ["form", "input"];
-
-$whoNeedChengeInTegs = ['action="<?= POST_FORM_ACTION_URI ?>" method="post" id="iblock_add_request_call"', ''];
-
-$insertAfterTegs = ['<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) { die(); } use Bitrix\Main\Localization\Loc; Loc::loadMessages(__FILE__); $this->setFrameMode(true); ?><? if ($arResult["AJAX_CALL"]) : $APPLICATION->RestartBuffer(); endif;<? if ($arResult["AJAX_CALL"]) : $APPLICATION->RestartBuffer(); endif; ?>',
-    ''];
-
-$renameTags = [$tegsNeedChenge, $whoNeedChengeInTegs, $insertAfterTegs];
+$renameTags = json_decode(file_get_contents ( "text_in_tag.json"));
 
 startCreateFileTemplate($html, implode(" ", $templateTags[0]), $renameTags);
 
