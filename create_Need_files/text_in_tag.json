@@ -1,6 +1,7 @@
 {
   "frmbi": {
-    "addInTag": ["action='<?= POST_FORM_ACTION_URI ?>'",
+    "addInTag": [
+      "action='<?= POST_FORM_ACTION_URI ?>'",
       "method='post'",
       "id='iblock_add_request_call'"
     ],
@@ -37,11 +38,11 @@
     ]
   },
   "inpbi":{
+    "addInTag": ["<?=$fieldClass?>"],
     "insertBefore": [
       "<? if ($arProperty['PROPERTY_TYPE'] == 'S' && $arProperty['USER_TYPE'] !== 'DefaBoolean' && $arProperty['USER_TYPE'] !== 'HTML') :?>"
     ],
     "insertAfter": [
-      "<?elseif ($arProperty['PROPERTY_TYPE'] == 'S' && $arProperty['USER_TYPE'] == 'DefaBoolean' && $arProperty['USER_TYPE'] !== 'HTML') :?>"
     ]
 
   },

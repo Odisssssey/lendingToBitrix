@@ -119,8 +119,15 @@ function writeInFile($f, $oneBlock, $renameTags){
             }
         }
 
-        $text = "\n".$newline;
-        fwrite($f, $text);
+//        preg_match_all ( '/<([^>]+)>/i' , $newline , $originTags);
+//
+//        $textTag = "\n"."<".$originTags[1];
+//        foreach ($renameTags->$biClass->addInTag as $addInTag){          bug
+//            $textTag .= " ".$addInTag;
+//        }
+//        $textTag .= ">";
+//        fwrite($f, $textTag);
+
 
         if(isset($biClass)){
             foreach ($renameTags->$biClass->insertAfter as $insertAfter){
@@ -149,7 +156,7 @@ function ctartContentFile($tags, $renameTags, $f){
     while($keyAnotherBlock < count($tags)-1) {
         $oneBlock = oneBlock($tags, $renameTags, $keyAnotherBlock);  // give last new block
 
-        writeInFile($f, $oneBlock, $renameTags);
+        writeInFile($f, $oneBlock, $renameTags, $tags);
 
         //Block processing//
         $keyAnotherBlock = keyAnoutherBlock($tags, $oneBlock, $keyAnotherBlock); // give new key
