@@ -33,8 +33,6 @@ function oneBlock($tags, $renameTags, $keyAnotherBlock){
 
         $isBiblock = isBiblock($tag, $renameTags);
 
-
-
         if ($isBiblock == 1){
             array_push($scopeTags, $nameTag[1][0]);
             array_push($treeTags, $tag);
@@ -58,6 +56,7 @@ function oneBlock($tags, $renameTags, $keyAnotherBlock){
         }
 
         if((count($scopeTags) == 0) && ($isBiblock == 0)){
+            var_dump($treeTags);
             return $treeTags;
         }
 
@@ -65,8 +64,20 @@ function oneBlock($tags, $renameTags, $keyAnotherBlock){
 
 }
 
+function isEqualClasses($festTag, $secondTag){
+    preg_match_all('/class[="]+([\w- ]+)["]+/i', $festTag, $fest);
+    preg_match_all('/class[="]+([\w- ]+)["]+/i', $secondTag, $second);
+
+    if($fest == $second){
+        return 1;
+    }
+    return 0;
+}
+
+
 function keyAnoutherBlock($tags, $oneBlock, $keyAnotherBlock){
     $keyOneBlock = 0;
+
 
     for ( ; $keyAnotherBlock < count($tags)-1; $keyAnotherBlock++){
         $tag = $tags[$keyAnotherBlock];
@@ -75,8 +86,10 @@ function keyAnoutherBlock($tags, $oneBlock, $keyAnotherBlock){
             $keyOneBlock = 0;
         }
 
-        if($oneBlock[$keyOneBlock] == $tag){
-            echo "\n".$tag;    //give all like blocks
+
+
+        if(isEqualClasses($oneBlock[$keyOneBlock], $tag) == 1){    ///add bi-class butch
+            //echo "\n".$tag;    //give all like blocks
 
         }else{
             ///изменить на сравнение по классам
@@ -97,12 +110,12 @@ function ctartContentFile($tags, $renameTags){
         $oneBlock = oneBlock($tags, $renameTags, $keyAnotherBlock);  // give last new block
 
         //Block processing//
-
         $keyAnotherBlock = keyAnoutherBlock($tags, $oneBlock, $keyAnotherBlock); // give new key
 
         echo "\n".$tags[$keyAnotherBlock].$keyAnotherBlock;
-        break;
     }
+
+
 
 }
 
