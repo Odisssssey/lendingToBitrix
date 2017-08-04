@@ -56,7 +56,6 @@ function oneBlock($tags, $renameTags, $keyAnotherBlock){
         }
 
         if((count($scopeTags) == 0) && ($isBiblock == 0)){
-            var_dump($treeTags);
             return $treeTags;
         }
 
@@ -103,16 +102,23 @@ function keyAnoutherBlock($tags, $oneBlock, $keyAnotherBlock){
     return $keyAnotherBlock;
 }
 
-function ctartContentFile($tags, $renameTags){
+function writeInFile($f, $oneBlock){
+    foreach ($oneBlock as $newline){
+        $text = "\n".$newline;
+        fwrite($f, $text);
+    }
+}
+
+function ctartContentFile($tags, $renameTags, $f){
     $keyAnotherBlock = 0;
 
     while($keyAnotherBlock < count($tags)-1) {
         $oneBlock = oneBlock($tags, $renameTags, $keyAnotherBlock);  // give last new block
 
+        writeInFile($f, $oneBlock);
+
         //Block processing//
         $keyAnotherBlock = keyAnoutherBlock($tags, $oneBlock, $keyAnotherBlock); // give new key
-
-        echo "\n".$tags[$keyAnotherBlock].$keyAnotherBlock;
     }
 
 
@@ -122,7 +128,7 @@ function ctartContentFile($tags, $renameTags){
 function startCreateFileRow($rowTags, $renameTags){
     $f = fopen("form-row.php", 'w+');
 
-    ctartContentFile($rowTags, $renameTags);
+    ctartContentFile($rowTags, $renameTags, $f);
 
     fclose($f);
 }
