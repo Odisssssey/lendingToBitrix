@@ -30,5 +30,12 @@
     "insertAfter": [
       "<? if ($arResult['AJAX_CALL']) { die(); } ?>"
     ]
-  }
+  },
+  "biForRow": [
+    "selbi",
+    "inpbi"
+  ],
+  "isSoloTag": [
+    "input"
+  ]
 }
