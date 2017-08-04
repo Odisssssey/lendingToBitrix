@@ -1,5 +1,8 @@
 
+<? if (! defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die(); ?>
+<? if ($arProperty['PROPERTY_TYPE'] == 'S' && $arProperty['USER_TYPE'] !== 'DefaBoolean' && $arProperty['USER_TYPE'] !== 'HTML') :?>
 <div class="inpbi popup-cost-calc__inputs-inner">
+<?elseif ($arProperty['PROPERTY_TYPE'] == 'S' && $arProperty['USER_TYPE'] == 'DefaBoolean' && $arProperty['USER_TYPE'] !== 'HTML') :?>
 <div class="text-field js-text-field popup-cost-calc__text-field-inner">
 <div class="text-field__title popup-cost-calc__input-caption">
 </div>

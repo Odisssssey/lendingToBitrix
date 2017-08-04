@@ -31,6 +31,20 @@
       "<? if ($arResult['AJAX_CALL']) { die(); } ?>"
     ]
   },
+  "startRow":{
+    "insertBefore": [
+      "<? if (! defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die(); ?>"
+    ]
+  },
+  "inpbi":{
+    "insertBefore": [
+      "<? if ($arProperty['PROPERTY_TYPE'] == 'S' && $arProperty['USER_TYPE'] !== 'DefaBoolean' && $arProperty['USER_TYPE'] !== 'HTML') :?>"
+    ],
+    "insertAfter": [
+      "<?elseif ($arProperty['PROPERTY_TYPE'] == 'S' && $arProperty['USER_TYPE'] == 'DefaBoolean' && $arProperty['USER_TYPE'] !== 'HTML') :?>"
+    ]
+
+  },
   "biForRow": [
     "selbi",
     "inpbi"

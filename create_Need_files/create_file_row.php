@@ -16,7 +16,6 @@ function isBiblock($tag, $renameTags){
         return 0;
     }
 
-
 }
 
 function oneBlock($tags, $renameTags, $keyAnotherBlock){
@@ -27,9 +26,7 @@ function oneBlock($tags, $renameTags, $keyAnotherBlock){
 
         $tag = $tags[$keyAnotherBlock];
 
-
         preg_match_all('/<([\w\S]+)[ >]+/i', $tag, $nameTag);
-
 
         $isBiblock = isBiblock($tag, $renameTags);
 
@@ -38,7 +35,6 @@ function oneBlock($tags, $renameTags, $keyAnotherBlock){
             array_push($treeTags, $tag);
             continue;
         }
-
 
         if(count($scopeTags) > 0){
 
@@ -77,15 +73,12 @@ function isEqualClasses($festTag, $secondTag){
 function keyAnoutherBlock($tags, $oneBlock, $keyAnotherBlock){
     $keyOneBlock = 0;
 
-
     for ( ; $keyAnotherBlock < count($tags)-1; $keyAnotherBlock++){
         $tag = $tags[$keyAnotherBlock];
 
         if(!isset($oneBlock[$keyOneBlock])){
             $keyOneBlock = 0;
         }
-
-
 
         if(isEqualClasses($oneBlock[$keyOneBlock], $tag) == 1){    ///add bi-class butch
             //echo "\n".$tag;    //give all like blocks
@@ -102,20 +95,61 @@ function keyAnoutherBlock($tags, $oneBlock, $keyAnotherBlock){
     return $keyAnotherBlock;
 }
 
-function writeInFile($f, $oneBlock){
+function biClass($tag, $renameTags){
+    preg_match_all('/class[="]+([\w]+)/i', $tag, $tagRow);
+    if(isset($tagRow[1][0])){
+        $biClass = $tagRow[1][0];
+        if(isset($renameTags->$biClass)){
+            return $biClass;
+        }
+    }
+
+}
+
+function writeInFile($f, $oneBlock, $renameTags){
+
     foreach ($oneBlock as $newline){
+
+        $biClass = biClass($newline, $renameTags);
+
+        if(isset($biClass)){
+            foreach ($renameTags->$biClass->insertBefore as $insertBefore){
+                $textInsertBefore = "\n".$insertBefore;
+                fwrite($f, $textInsertBefore);
+            }
+        }
+
         $text = "\n".$newline;
         fwrite($f, $text);
+
+        if(isset($biClass)){
+            foreach ($renameTags->$biClass->insertAfter as $insertAfter){
+                $textInsertAfter = "\n".$insertAfter;
+                fwrite($f, $textInsertAfter);
+            }
+        }
+
+    }
+}
+
+function writeStartText($renameTags, $f){
+    if(isset($renameTags->startRow->insertBefore)){
+        foreach ($renameTags->startRow->insertBefore as $festTag){
+            $textStartTag = "\n".$festTag;
+            fwrite($f, $textStartTag);
+        }
     }
 }
 
 function ctartContentFile($tags, $renameTags, $f){
     $keyAnotherBlock = 0;
 
+    writeStartText($renameTags, $f);
+
     while($keyAnotherBlock < count($tags)-1) {
         $oneBlock = oneBlock($tags, $renameTags, $keyAnotherBlock);  // give last new block
 
-        writeInFile($f, $oneBlock);
+        writeInFile($f, $oneBlock, $renameTags);
 
         //Block processing//
         $keyAnotherBlock = keyAnoutherBlock($tags, $oneBlock, $keyAnotherBlock); // give new key
