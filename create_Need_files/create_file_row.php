@@ -107,6 +107,17 @@ function biClass($tag, $renameTags){
 }
 
 function writeInFile($f, $oneBlock, $renameTags){
+    $biClassBlock = biClass($oneBlock[0], $renameTags);
+
+    if(isset($biClassBlock)){
+        $startinpbi = "start".$biClassBlock;
+        if(isset($renameTags->$startinpbi->insertBefore)) {
+            foreach ($renameTags->$startinpbi->insertBefore as $startInsertBefore) {
+                $textStartInsertBefore = "\n" . $startInsertBefore;
+                fwrite($f, $textStartInsertBefore);
+            }
+        }
+    }
 
     foreach ($oneBlock as $newline){
 
@@ -119,14 +130,29 @@ function writeInFile($f, $oneBlock, $renameTags){
             }
         }
 
-//        preg_match_all ( '/<([^>]+)>/i' , $newline , $originTags);
-//
-//        $textTag = "\n"."<".$originTags[1];
-//        foreach ($renameTags->$biClass->addInTag as $addInTag){          bug
-//            $textTag .= " ".$addInTag;
-//        }
-//        $textTag .= ">";
-//        fwrite($f, $textTag);
+        preg_match_all ( '/<([^>]+)>/i' , $newline , $originTags);
+
+        $nameTagOfLine = explode(" ", $originTags[1][0])[0];
+
+        preg_match_all('/([^ =]+)[="]+([\w- ]+)["]+/i', $originTags[1][0], $propertyTagInOrigin);
+        //var_dump($propertyTagInOrigin);
+        $textInTag = "\n"."<".$nameTagOfLine;
+        foreach ($propertyTagInOrigin[1] as $keyNameProperty=>$NameProperty){
+            $textInTag .= ' '.$NameProperty.'="';
+
+            $textInTag .= $propertyTagInOrigin[2][$keyNameProperty];
+
+            if(isset($renameTags->$biClass->addInProperty->$NameProperty)){
+                foreach ($renameTags->$biClass->addInProperty->$NameProperty as $addInProperty){
+                    $textInTag .= $addInProperty;
+                }
+            }
+
+            $textInTag .= '"';
+        }
+        $textInTag .= ">";
+
+        fwrite($f, $textInTag);
 
 
         if(isset($biClass)){
@@ -137,6 +163,19 @@ function writeInFile($f, $oneBlock, $renameTags){
         }
 
     }
+
+
+
+    if(isset($biClassBlock)) {
+        $nameEndBlock = "end".$biClassBlock;
+        if (isset($renameTags->$nameEndBlock->insertAfter)) {
+            foreach ($renameTags->$nameEndBlock->insertAfter as $endBlock) {
+                $textEndBlock = "\n" . $endBlock;
+                fwrite($f, $textEndBlock);
+            }
+        }
+    }
+
 }
 
 function writeStartText($renameTags, $f){

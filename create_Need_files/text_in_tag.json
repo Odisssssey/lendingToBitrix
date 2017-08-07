@@ -27,7 +27,7 @@
       "<? endforeach ?> "
     ]
   },
-  "end": {
+  "endForm": {
     "insertAfter": [
       "<? if ($arResult['AJAX_CALL']) { die(); } ?>"
     ]
@@ -37,14 +37,38 @@
       "<? if (! defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die(); ?>"
     ]
   },
-  "inpbi":{
-    "addInTag": ["<?=$fieldClass?>"],
+  "startinpbi": {
     "insertBefore": [
       "<? if ($arProperty['PROPERTY_TYPE'] == 'S' && $arProperty['USER_TYPE'] !== 'DefaBoolean' && $arProperty['USER_TYPE'] !== 'HTML') :?>"
-    ],
-    "insertAfter": [
     ]
-
+  },
+  "startselbi": {
+    "insertBefore": [
+      "<?if ($arProperty['PROPERTY_TYPE'] == 'E') :?>"
+    ]
+  },
+  "inpbi":{
+    "addInTag": [],
+    "addInProperty": {
+      "class": [" <?=$fieldClass?>"]
+    },
+    "insertBefore": [],
+    "insertAfter": []
+  },
+  "selbi":{
+    "addInTag": [""],
+    "insertBefore": [],
+    "insertAfter": []
+  },
+  "endselbi": {
+    "insertAfter": [
+      "<?endif?>"
+    ]
+  },
+  "endinpbi": {
+    "insertAfter": [
+      "<?endif?>"
+    ]
   },
   "biForRow": [
     "selbi",

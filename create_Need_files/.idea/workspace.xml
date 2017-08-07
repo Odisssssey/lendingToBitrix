@@ -15,28 +15,28 @@
       <file leaf-file-name="cteate_file_templates.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cteate_file_templates.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="62" column="61" lean-forward="true" selection-start-line="62" selection-start-column="4" selection-end-line="62" selection-end-column="61" />
+            <state relative-caret-position="1462">
+              <caret line="92" column="44" lean-forward="false" selection-start-line="92" selection-start-column="31" selection-end-line="92" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create_file_row.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="create_file_row.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/create_file_row.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="124" column="78" lean-forward="false" selection-start-line="124" selection-start-column="78" selection-end-line="124" selection-end-column="78" />
+            <state relative-caret-position="459">
+              <caret line="169" column="43" lean-forward="false" selection-start-line="169" selection-start-column="43" selection-end-line="169" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="form-row.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="form-row.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/form-row.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="425">
-              <caret line="25" column="7" lean-forward="false" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
+              <caret line="25" column="9" lean-forward="true" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -55,8 +55,8 @@
       <file leaf-file-name="text_in_tag.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/text_in_tag.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="40" column="13" lean-forward="false" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="13" />
+            <state relative-caret-position="198">
+              <caret line="46" column="9" lean-forward="false" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -65,8 +65,8 @@
       <file leaf-file-name="block_for_row.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/block_for_row.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="62" column="16" lean-forward="true" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="26" />
+            <state relative-caret-position="374">
+              <caret line="40" column="40" lean-forward="true" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -90,11 +90,11 @@
         <option value="$PROJECT_DIR$/create_templates.php" />
         <option value="$PROJECT_DIR$/block_for_row.php" />
         <option value="$PROJECT_DIR$/SortToFiles.class.php" />
-        <option value="$PROJECT_DIR$/cteate_file_templates.php" />
         <option value="$PROJECT_DIR$/template.php" />
-        <option value="$PROJECT_DIR$/form-row.php" />
+        <option value="$PROJECT_DIR$/cteate_file_templates.php" />
         <option value="$PROJECT_DIR$/text_in_tag.json" />
         <option value="$PROJECT_DIR$/create_file_row.php" />
+        <option value="$PROJECT_DIR$/form-row.php" />
       </list>
     </option>
   </component>
@@ -125,8 +125,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -274,12 +274,13 @@
       <workItem from="1501571096870" duration="28048000" />
       <workItem from="1501657505020" duration="6391000" />
       <workItem from="1501744878943" duration="25210000" />
-      <workItem from="1501830352181" duration="29583000" />
+      <workItem from="1501830352181" duration="29671000" />
+      <workItem from="1502090339860" duration="9348000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97584000" />
+    <option name="totallyTimeSpent" value="107020000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="50" y="0" width="1727" height="1040" extended-state="0" />
@@ -318,6 +319,54 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/cteate_file_templates.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1054">
+          <caret line="62" column="61" lean-forward="true" selection-start-line="62" selection-start-column="4" selection-end-line="62" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/form-row.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="7" lean-forward="false" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="17" lean-forward="true" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/text_in_tag.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="40" column="13" lean-forward="false" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/block_for_row.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1054">
+          <caret line="62" column="16" lean-forward="true" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/create_file_row.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2108">
+          <caret line="124" column="78" lean-forward="false" selection-start-line="124" selection-start-column="78" selection-end-line="124" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cteate_file_templates.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="731">
@@ -442,8 +491,16 @@
     <entry file="file://$PROJECT_DIR$/SortToFiles.class.php" />
     <entry file="file://$PROJECT_DIR$/block_for_row.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="62" column="16" lean-forward="true" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="26" />
+        <state relative-caret-position="374">
+          <caret line="40" column="40" lean-forward="true" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/text_in_tag.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="46" column="9" lean-forward="false" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -458,16 +515,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cteate_file_templates.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="62" column="61" lean-forward="true" selection-start-line="62" selection-start-column="4" selection-end-line="62" selection-end-column="61" />
+        <state relative-caret-position="1462">
+          <caret line="92" column="44" lean-forward="false" selection-start-line="92" selection-start-column="31" selection-end-line="92" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/text_in_tag.json">
+    <entry file="file://$PROJECT_DIR$/create_file_row.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="40" column="13" lean-forward="false" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="13" />
+        <state relative-caret-position="459">
+          <caret line="169" column="43" lean-forward="false" selection-start-line="169" selection-start-column="43" selection-end-line="169" selection-end-column="43" />
           <folding />
         </state>
       </provider>
@@ -475,15 +532,7 @@
     <entry file="file://$PROJECT_DIR$/form-row.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
-          <caret line="25" column="7" lean-forward="false" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/create_file_row.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="124" column="78" lean-forward="false" selection-start-line="124" selection-start-column="78" selection-end-line="124" selection-end-column="78" />
+          <caret line="25" column="9" lean-forward="true" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
           <folding />
         </state>
       </provider>
