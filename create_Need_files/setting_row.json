@@ -1,0 +1,15 @@
+{
+  "inpbi": {
+    "allProperty": ["input", "label"],
+    "label": [
+      "<label class='", "' for='form-field-<?=$arProperty['ID']?>'><?=$arProperty['LABEL']?> <?=$arProperty['IS_REQUIRED'] == 'Y'?'*':''?></label>"
+    ],
+    "input": [
+      "<input type='text' name='<?=$arProperty['FORM_NAME']?>' class='",
+      " field-name-<?=$arProperty['CODE']?><?=$arProperty['IS_REQUIRED'] == 'Y'?'required':''?>' id='form-field-<?=$arProperty['ID']?>'>"
+    ]
+  },
+  "selbi": {
+
+  }
+}

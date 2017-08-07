@@ -106,7 +106,25 @@ function biClass($tag, $renameTags){
 
 }
 
-function writeInFile($f, $oneBlock, $renameTags){
+
+function createSettingsForInput($newline, $settingsTags, $nameTagInputInRow, $biClassBlock){
+
+    preg_match_all('/class[="]+([^"]+)["]+/i', $newline, $propertyClassInRow);
+
+    if(isset($settingsTags->$biClassBlock->$nameTagInputInRow)){
+
+        $textTagInputInRow = "\n".$settingsTags->inpbi->$nameTagInputInRow[0];
+        $textTagInputInRow .= $propertyClassInRow[1][0];
+        $textTagInputInRow .= $settingsTags->inpbi->$nameTagInputInRow[1];
+        return $textTagInputInRow;
+    }
+    return $newline;
+
+}
+
+
+
+function writeInFile($f, $oneBlock, $renameTags, $settingsTags){
     $biClassBlock = biClass($oneBlock[0], $renameTags);
 
     if(isset($biClassBlock)){
@@ -134,24 +152,33 @@ function writeInFile($f, $oneBlock, $renameTags){
 
         $nameTagOfLine = explode(" ", $originTags[1][0])[0];
 
-        preg_match_all('/([^ =]+)[="]+([\w- ]+)["]+/i', $originTags[1][0], $propertyTagInOrigin);
-        //var_dump($propertyTagInOrigin);
-        $textInTag = "\n"."<".$nameTagOfLine;
-        foreach ($propertyTagInOrigin[1] as $keyNameProperty=>$NameProperty){
-            $textInTag .= ' '.$NameProperty.'="';
 
-            $textInTag .= $propertyTagInOrigin[2][$keyNameProperty];
 
-            if(isset($renameTags->$biClass->addInProperty->$NameProperty)){
-                foreach ($renameTags->$biClass->addInProperty->$NameProperty as $addInProperty){
-                    $textInTag .= $addInProperty;
+        if(isset($settingsTags->$biClassBlock->allProperty) && in_array($nameTagOfLine, $settingsTags->$biClassBlock->allProperty)){
+
+            $textInTag = createSettingsForInput($newline, $settingsTags, $nameTagOfLine, $biClassBlock);
+
+
+        }else {
+
+            preg_match_all('/([^ =]+)[="]+([\w- ]+)["]+/i', $originTags[1][0], $propertyTagInOrigin);
+
+            $textInTag = "\n" . "<" . $nameTagOfLine;
+            foreach ($propertyTagInOrigin[1] as $keyNameProperty => $NameProperty) {
+                $textInTag .= ' ' . $NameProperty . '="';
+
+                $textInTag .= $propertyTagInOrigin[2][$keyNameProperty];
+
+                if (isset($renameTags->$biClass->addInProperty->$NameProperty)) {
+                    foreach ($renameTags->$biClass->addInProperty->$NameProperty as $addInProperty) {
+                        $textInTag .= $addInProperty;
+                    }
                 }
+
+                $textInTag .= '"';
             }
-
-            $textInTag .= '"';
+            $textInTag .= ">";
         }
-        $textInTag .= ">";
-
         fwrite($f, $textInTag);
 
 
@@ -187,7 +214,7 @@ function writeStartText($renameTags, $f){
     }
 }
 
-function ctartContentFile($tags, $renameTags, $f){
+function ctartContentFile($tags, $renameTags, $f, $settingsTags){
     $keyAnotherBlock = 0;
 
     writeStartText($renameTags, $f);
@@ -195,7 +222,7 @@ function ctartContentFile($tags, $renameTags, $f){
     while($keyAnotherBlock < count($tags)-1) {
         $oneBlock = oneBlock($tags, $renameTags, $keyAnotherBlock);  // give last new block
 
-        writeInFile($f, $oneBlock, $renameTags, $tags);
+        writeInFile($f, $oneBlock, $renameTags, $settingsTags);
 
         //Block processing//
         $keyAnotherBlock = keyAnoutherBlock($tags, $oneBlock, $keyAnotherBlock); // give new key
@@ -205,17 +232,19 @@ function ctartContentFile($tags, $renameTags, $f){
 
 }
 
-function startCreateFileRow($rowTags, $renameTags){
+function startCreateFileRow($rowTags, $renameTags, $settingsTags){
     $f = fopen("form-row.php", 'w+');
 
-    ctartContentFile($rowTags, $renameTags, $f);
+    ctartContentFile($rowTags, $renameTags, $f, $settingsTags);
 
     fclose($f);
 }
 
 $templateTags = startCreateFile($html);  //in block_for_row file
 
+$settingsTags = json_decode(file_get_contents ( "setting_row.json"));
+
 $renameTags = json_decode(file_get_contents ( "text_in_tag.json"));
 
 //var_dump($templateTags[1]);
-startCreateFileRow($templateTags[1], $renameTags);
+startCreateFileRow($templateTags[1], $renameTags, $settingsTags);

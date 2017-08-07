@@ -5,9 +5,9 @@
 <div class="text-field js-text-field popup-cost-calc__text-field-inner">
 <div class="text-field__title popup-cost-calc__input-caption">
 </div>
-<label class="text-field__label" for="popup-cost-calc-phone">
+<label class='text-field__label' for='form-field-<?=$arProperty['ID']?>'><?=$arProperty['LABEL']?> <?=$arProperty['IS_REQUIRED'] == 'Y'?'*':''?></label>
 </label>
-<input class="text-field__input js-text-field__input popup-cost-calc__input" type="text" id="popup-cost-calc-phone">
+<input type='text' name='<?=$arProperty['FORM_NAME']?>' class='text-field__input js-text-field__input popup-cost-calc__input field-name-<?=$arProperty['CODE']?><?=$arProperty['IS_REQUIRED'] == 'Y'?'required':''?>' id='form-field-<?=$arProperty['ID']?>'>
 </div>
 </div>
 <?endif?>
