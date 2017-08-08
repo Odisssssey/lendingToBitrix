@@ -123,6 +123,46 @@ function createSettingsForInput($newline, $settingsTags, $nameTagInputInRow, $bi
 }
 
 
+function classProperty($tag){
+    preg_match_all('/class[="]+([^"]+)["]+/i', $tag, $propertyClass);
+    return $propertyClass[1];
+}
+
+function createTagForSelect($classSelectProperty, $nameTagSelectInRow, $settingsTags){
+    $textTagSelectInRow = "\n".$settingsTags->$nameTagSelectInRow[0];
+    $textTagSelectInRow .= $classSelectProperty[0];
+    $textTagSelectInRow .= $settingsTags->$nameTagSelectInRow[1];
+    return $textTagSelectInRow;
+}
+
+function ignoreTag($nameTag){
+    if($nameTag == "/option"){
+        return 1;
+    }
+    return 0;
+}
+
+
+function createSettingsForSelect($tagSelectInRow, $settingsTags, $nameTagSelectInRow, $biClassBlock){
+
+    $classSelectProperty = classProperty($tagSelectInRow);
+
+    if($nameTagSelectInRow == "select") {
+        $textTagSelectInRow = createTagForSelect($classSelectProperty, $nameTagSelectInRow, $settingsTags->$biClassBlock);
+
+        return $textTagSelectInRow;
+    }
+    if($nameTagSelectInRow == "option") {
+
+        $textTagSelectInRow = createTagForSelect($classSelectProperty, $nameTagSelectInRow, $settingsTags->$biClassBlock);
+
+        return $textTagSelectInRow;
+
+    }
+
+}
+
+
 
 function writeInFile($f, $oneBlock, $renameTags, $settingsTags){
     $biClassBlock = biClass($oneBlock[0], $renameTags);
@@ -156,29 +196,46 @@ function writeInFile($f, $oneBlock, $renameTags, $settingsTags){
 
         if(isset($settingsTags->$biClassBlock->allProperty) && in_array($nameTagOfLine, $settingsTags->$biClassBlock->allProperty)){
 
-            $textInTag = createSettingsForInput($newline, $settingsTags, $nameTagOfLine, $biClassBlock);
+            if($biClassBlock == "inpbi"){
+                $textInTag = createSettingsForInput($newline, $settingsTags, $nameTagOfLine, $biClassBlock);
+            }else{
+                $textInTag = createSettingsForSelect($newline, $settingsTags, $nameTagOfLine, $biClassBlock);
 
+                if($nameTagOfLine == "option") {
+                    if(!isset($isCompleteOption)){
+                        $isCompleteOption = 1;
 
-        }else {
-
-            preg_match_all('/([^ =]+)[="]+([\w- ]+)["]+/i', $originTags[1][0], $propertyTagInOrigin);
-
-            $textInTag = "\n" . "<" . $nameTagOfLine;
-            foreach ($propertyTagInOrigin[1] as $keyNameProperty => $NameProperty) {
-                $textInTag .= ' ' . $NameProperty . '="';
-
-                $textInTag .= $propertyTagInOrigin[2][$keyNameProperty];
-
-                if (isset($renameTags->$biClass->addInProperty->$NameProperty)) {
-                    foreach ($renameTags->$biClass->addInProperty->$NameProperty as $addInProperty) {
-                        $textInTag .= $addInProperty;
+                    }else{
+                        $textInTag = '';
                     }
                 }
-
-                $textInTag .= '"';
             }
-            $textInTag .= ">";
+
+        }else {
+            $textInTag = '';
+            preg_match_all('/([^ =]+)[="]+([\w- ]+)["]+/i', $originTags[1][0], $propertyTagInOrigin);
+
+            if(!ignoreTag($nameTagOfLine)) {
+
+                $textInTag = "\n" . "<" . $nameTagOfLine;
+                foreach ($propertyTagInOrigin[1] as $keyNameProperty => $NameProperty) {
+                    $textInTag .= ' ' . $NameProperty . '="';
+
+                    $textInTag .= $propertyTagInOrigin[2][$keyNameProperty];
+
+                    if (isset($renameTags->$biClass->addInProperty->$NameProperty)) {
+                        foreach ($renameTags->$biClass->addInProperty->$NameProperty as $addInProperty) {
+                            $textInTag .= $addInProperty;
+                        }
+                    }
+
+                    $textInTag .= '"';
+                }
+                $textInTag .= ">";
+            }
         }
+
+
         fwrite($f, $textInTag);
 
 
