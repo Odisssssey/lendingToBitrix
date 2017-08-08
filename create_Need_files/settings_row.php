@@ -6,7 +6,7 @@
  * Time: 15:02
  */
 
-
+require_once('efficient_block_for_row.php');
 
 
 function createSettingsForInput($html, $settingsTags){
@@ -79,6 +79,9 @@ function createSettingsForSelect($html, $settingsTags){
         }
     }
 }
+
+
+$arrRowFiles = formTagsForRowFiles($htmlForRow, $settingRowTags->allProperty);
 
 
 $html = [['div class="text-field js-text-field popup-cost-calc__text-field-inner"', 'div class="text-field__title popup-cost-calc__input-caption"',

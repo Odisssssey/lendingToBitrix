@@ -82,18 +82,18 @@ function divideFile($html, $settingRowTags, $SoloTags){
         $isBitrixBlock = isBitrixBlock($tagInStack);
 
         if($isBitrixBlock){
-            array_push($timesTagsforRow, $tags[0][$keyOriginTag]);
+            array_push($timesTagsforRow, $tags[1][$keyOriginTag]);
 
         }else{
 
             if(count($timesTagsforRow) > 0){
-                array_push($timesTagsforRow, $tags[0][$keyOriginTag]);    //get last tag in block
+                array_push($timesTagsforRow, $tags[1][$keyOriginTag]);    //get last tag in block
                 array_push($templateTags[1], $timesTagsforRow);
                 $timesTagsforRow = [];
                 continue;
             }
 
-            array_push($templateTags[0], $tags[0][$keyOriginTag]);
+            array_push($templateTags[0], $tags[1][$keyOriginTag]);
         }
 
 
