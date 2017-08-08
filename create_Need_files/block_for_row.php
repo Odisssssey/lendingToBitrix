@@ -80,8 +80,6 @@ function startCreateFile($html){
     return $templateTags;
 }
 
-$settingsTags = json_decode(file_get_contents ( "setting_row.json"));
-
 
 $html = file_get_contents("http://university.netology.ru/user_data/tarutin/bitrix/index.html");
 startCreateFile($html);
