@@ -198,13 +198,14 @@ function writeInFile($f, $oneBlock, $renameTags, $settingsTags){
 
             if($biClassBlock == "inpbi"){
                 $textInTag = createSettingsForInput($newline, $settingsTags, $nameTagOfLine, $biClassBlock);
-            }else{
+            }
+            if($biClassBlock == "selbi"){
+
                 $textInTag = createSettingsForSelect($newline, $settingsTags, $nameTagOfLine, $biClassBlock);
 
                 if($nameTagOfLine == "option") {
                     if(!isset($isCompleteOption)){
                         $isCompleteOption = 1;
-
                     }else{
                         $textInTag = '';
                     }
@@ -212,7 +213,7 @@ function writeInFile($f, $oneBlock, $renameTags, $settingsTags){
             }
 
         }else {
-            $textInTag = '';
+            $textInTag = '';                                   // clean variable
             preg_match_all('/([^ =]+)[="]+([\w- ]+)["]+/i', $originTags[1][0], $propertyTagInOrigin);
 
             if(!ignoreTag($nameTagOfLine)) {

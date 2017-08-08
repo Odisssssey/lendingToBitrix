@@ -19,5 +19,6 @@
       "<option value=''></option><?foreach ($arProperty['ENUM'] as $value):?><option class='",
       "' value='<?=$value['ID']?>'><?=$value['NAME']?></option><?endforeach ?>"
     ]
-  }
+  },
+  "allProperty": ["selbi", "inpbi", "texbi"]
 }
