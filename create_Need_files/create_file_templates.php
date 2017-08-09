@@ -38,7 +38,7 @@ function actionTag($tag, $renameTags, $f, $bitClass){
 }
 
 function writeEndText($renameTags, $f){
-    if(isset($renameTags->end->insertAfter)){
+    if(isset($renameTags->endForm->insertAfter)){
         foreach ($renameTags->endForm->insertAfter as $endTag){
             $textEndTag = "\n".$endTag;
             fwrite($f, $textEndTag);
