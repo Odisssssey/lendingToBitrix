@@ -11,7 +11,7 @@
  *
  */
 
-require_once('division_file_on_row_and_template.php');
+//require_once('division_file_on_row_and_template.php');
 
 
 
@@ -29,16 +29,18 @@ function formTagsForRowFiles($htmlForRow, $settingRowTags){           //this par
         }
 
     }
+
+    echo "\n"."sort block for row is done";
     return $originalBlocks;
 
 }
 
 
 
-$htmlForRow = divideFile($html, $settingRowTags->allProperty, $settingFile->isSoloTag)[1];
-
-
-formTagsForRowFiles($htmlForRow, $settingRowTags->allProperty);
+//$htmlForRow = divideFile($html, $settingRowTags->allProperty, $settingFile->isSoloTag)[1];
+//
+//
+//formTagsForRowFiles($htmlForRow, $settingRowTags->allProperty);
 
 
 

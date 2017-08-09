@@ -5,8 +5,8 @@
  * Date: 31.07.2017
  * Time: 17:43
  */
-require_once('block_for_rowOLD.php');
-require_once('division_file_on_row_and_template.php');
+
+
 
 function actionTag($tag, $renameTags, $f, $bitClass){
 
@@ -60,10 +60,8 @@ function serthBitClass($tag, $renameTags)
 }
 
 function startCreateFileTemplate($html, $templateTags, $renameTags){
-    //preg_match_all ( '/<([^>]+)>/i' , $templateTags , $tags);
 
     preg_match_all ( '/<([^>]+?[^>]+)>(.*?)<[^>]+?[^>]+>/i' , $html , $variable);
-    var_dump($variable);
 
 
     $f = fopen("template.php", 'w+');
@@ -84,26 +82,17 @@ function startCreateFileTemplate($html, $templateTags, $renameTags){
 
     writeEndText($renameTags, $f);
     fclose($f);
+
+    echo "\n"."template.php is done";
 }
 
 
-$html = file_get_contents("http://university.netology.ru/user_data/tarutin/bitrix/index.html");
+//require_once('division_file_on_row_and_template.php');
+//
+//$htmlForTemplate = divideFile($html, $settingRowTags->allProperty, $settingFile->isSoloTag); // in division_file_on_row_and_template
+//
+//
+//$renameTags = json_decode(file_get_contents ( "text_in_tag.json"));
+//
+//startCreateFileTemplate($html, $htmlForTemplate[0], $renameTags);  ///$html in  division_file_on_row_and_template.php
 
-$templateTags = startCreateFile($html);  //in block_for_row file
-
-
-$htmlForTemplate = divideFile($html, $settingRowTags->allProperty, $settingFile->isSoloTag); // in division_file_on_row_and_template
-//var_dump($htmlForTemplate);
-
-$renameTags = json_decode(file_get_contents ( "text_in_tag.json"));
-
-startCreateFileTemplate($html, $htmlForTemplate[0], $renameTags);
-
-////var_dump(divideFile($html, $settingRowTags->allProperty, $settingFile->isSoloTag))[0];///////------------
-
-
-//preg_match_all ( '/<([^>]+)>/i' , $html , $tags); //все теги без значений
-
-//preg_match_all ( '/(<[^>]+?[^>]+>)(.*?)<[^>]+?[^>]+>/i' , $html , $variable); // значения тегов
-
-//; //preg_match_all ( '/([^=]+)[="]+([\w-]+)["]+/i' , $str[1] , $property)

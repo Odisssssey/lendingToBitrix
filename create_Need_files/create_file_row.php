@@ -9,7 +9,7 @@
  *
  */
 
-require_once ("efficient_block_for_row.php");
+//require_once ("efficient_block_for_row.php");
 
 function biClass($tag, $renameTags){
     preg_match_all('/class[="]+([\w]+)/i', $tag, $tagRow);
@@ -229,29 +229,16 @@ function startCreateFileRow($rowTags, $renameTags, $settingsTags){
     ctartContentFile($rowTags, $renameTags, $f, $settingsTags);
 
     fclose($f);
+    echo "\n"."form-row.php is done";
 }
 
 
-$settingsTags = json_decode(file_get_contents ( "setting_row.json"));
-
-$renameTags = json_decode(file_get_contents ( "text_in_tag.json"));
-
-
-$arrRowFiles = formTagsForRowFiles($htmlForRow, $settingRowTags->allProperty);  //in efficient_block_for_row.php
-
-
-startCreateFileRow($arrRowFiles, $renameTags, $settingsTags);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//$settingsTags = json_decode(file_get_contents ( "setting_row.json"));
+//
+//$renameTags = json_decode(file_get_contents ( "text_in_tag.json"));
+//
+//
+//$arrRowFiles = formTagsForRowFiles($htmlForRow, $settingRowTags->allProperty);  //in efficient_block_for_row.php
+//
+//
+//startCreateFileRow($arrRowFiles, $renameTags, $settingsTags);
