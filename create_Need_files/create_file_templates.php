@@ -6,7 +6,7 @@
  * Time: 17:43
  */
 
-
+//require_once ("division_file_on_row_and_template.php");
 
 function actionTag($tag, $renameTags, $f, $bitClass){
 
@@ -86,8 +86,8 @@ function startCreateFileTemplate($html, $templateTags, $renameTags){
     echo "\n"."template.php is done";
 }
 
-
-//require_once('division_file_on_row_and_template.php');
+//
+//$html = file_get_contents("http://university.netology.ru/user_data/tarutin/bitrix/index.html");
 //
 //$htmlForTemplate = divideFile($html, $settingRowTags->allProperty, $settingFile->isSoloTag); // in division_file_on_row_and_template
 //

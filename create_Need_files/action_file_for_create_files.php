@@ -28,7 +28,7 @@ $arrRowFiles = formTagsForRowFiles($htmlForFiles[1], $settingRowTags->allPropert
 
 startCreateFileRow($arrRowFiles, $settingFile, $settingRowTags);
 
-startCreateFileTemplate($html, $htmlForFiles[0], $settingRowTags);
+startCreateFileTemplate($html, $htmlForFiles[0], $settingFile);
 
 
 

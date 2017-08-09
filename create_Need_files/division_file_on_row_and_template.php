@@ -103,10 +103,10 @@ function divideFile($html, $settingRowTags, $SoloTags){
 
 
 
-//$settingFile = json_decode(file_get_contents ( "text_in_tag.json"));
-//
-//$settingRowTags = json_decode(file_get_contents ( "setting_row.json"));
-//
-//$html = file_get_contents("http://university.netology.ru/user_data/tarutin/bitrix/index.html");
+$settingFile = json_decode(file_get_contents ( "text_in_tag.json"));
+
+$settingRowTags = json_decode(file_get_contents ( "setting_row.json"));
+
+$html = file_get_contents("http://university.netology.ru/user_data/tarutin/bitrix/index.html");
 //
 //divideFile($html, $settingRowTags->allProperty, $settingFile->isSoloTag);
