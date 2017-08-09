@@ -4,8 +4,8 @@
  * User: anton.tarutin
  * Date: 08.08.2017
  * Time: 14:26
+ * new
  */
-
 
 
 function findBitrixTag($tag, $settingRowTags){

@@ -1,6 +1,6 @@
 
 <? if (! defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die(); ?>
-<? if ($arProperty['PROPERTY_TYPE'] == 'S' && $arProperty['USER_TYPE'] !== 'DefaBoolean' && $arProperty['USER_TYPE'] !== 'HTML') :?>
+<? if ($arProperty['PROPERTY_TYPE'] == 'S') :?>
 <div class="inpbi popup-cost-calc__inputs-inner <?=$fieldClass?>">
 <div class="text-field js-text-field popup-cost-calc__text-field-inner">
 <div class="text-field__title popup-cost-calc__input-caption">
@@ -14,7 +14,7 @@
 <?if ($arProperty['PROPERTY_TYPE'] == 'E') :?>
 <div class="selbi popup-cost-calc__dropdown popup-cost-calc__inputs-inner popup-cost-calc__inputs-inner--select">
 <select data-placeholder='<?=$arProperty['LABEL']?>' name='<?=$arProperty['FORM_NAME']?>' class='popup-cost-calc__dropdown-select js-dropdown-battery-voltage <?=$arProperty['IS_REQUIRED'] == 'Y'?'required':''?>' id='form-field-<?=$arProperty['ID']?>'>
-<option value=''></option><?foreach ($arProperty['ENUM'] as $value):?><option class='popup-cost-calc__dropdown-option' value='<?=$value['ID']?>'><?=$value['NAME']?></option><?endforeach ?>
+<option value='' class='popup-cost-calc__dropdown-option'></option><?foreach ($arProperty['ENUM'] as $value):?><option class='popup-cost-calc__dropdown-option' value='<?=$value['ID']?>'><?=$value['NAME']?></option><?endforeach ?>
 </select>
 </div>
 <?endif?>

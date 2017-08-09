@@ -16,7 +16,8 @@
       " <?=$arProperty['IS_REQUIRED'] == 'Y'?'required':''?>' id='form-field-<?=$arProperty['ID']?>'>"
     ],
     "option": [
-      "<option value=''></option><?foreach ($arProperty['ENUM'] as $value):?><option class='",
+      "<option value='' class='",
+      "'></option><?foreach ($arProperty['ENUM'] as $value):?><option class='",
       "' value='<?=$value['ID']?>'><?=$value['NAME']?></option><?endforeach ?>"
     ]
   },

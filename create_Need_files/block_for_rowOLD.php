@@ -4,6 +4,10 @@
  * User: anton.tarutin
  * Date: 01.08.2017
  * Time: 11:00
+ *
+ * old
+ * find repeat tags
+ *
  */
 function searchForRepetitions($tags){
     $classScope = [];

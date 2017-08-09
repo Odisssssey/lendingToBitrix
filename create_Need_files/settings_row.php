@@ -4,6 +4,8 @@
  * User: anton.tarutin
  * Date: 07.08.2017
  * Time: 15:02
+ *
+ * times
  */
 
 require_once('efficient_block_for_row.php');
@@ -51,52 +53,44 @@ function ignoreTag($nameTag){
     return 0;
 }
 
-function createSettingsForSelect($html, $settingsTags){
+function createSettingsForSelect($block, $settingsTags){
+    //foreach($html as $block){
+        foreach ($block as $tagSelectInRow) {
+            $nameTagSelectInRow = explode(" ", $tagSelectInRow)[0];
+            $classSelectProperty = classProperty($tagSelectInRow);
 
-    foreach ($html as $tagSelectInRow){
-        $nameTagSelectInRow = explode(" ", $tagSelectInRow)[0];
-        $classSelectProperty = classProperty($tagSelectInRow);
+            if (in_array($nameTagSelectInRow, $settingsTags->selbi->allProperty)) {
+                if ($nameTagSelectInRow == "select") {
+                    $textTagSelectInRow = createTagForSelect($classSelectProperty, $nameTagSelectInRow,
+                        $settingsTags->selbi);
 
-        if(in_array($nameTagSelectInRow, $settingsTags->selbi->allProperty)){
-            if($nameTagSelectInRow == "select") {
-                $textTagSelectInRow = createTagForSelect($classSelectProperty, $nameTagSelectInRow, $settingsTags->selbi);
+                    echo $textTagSelectInRow;
+                }
+                if (($nameTagSelectInRow == "option") && (!isset($isComplete))) {
+                    $isComplete = 1;
+                    $textTagSelectInRow = createTagForSelect($classSelectProperty, $nameTagSelectInRow,
+                        $settingsTags->selbi);
 
-                echo $textTagSelectInRow;
+                    echo $textTagSelectInRow;
+                }
+
+            } else {
+
+                if (!ignoreTag($nameTagSelectInRow)) {
+                    echo "\n" . "<" . $tagSelectInRow . ">";
+                }
+
             }
-            if(($nameTagSelectInRow == "option") && (!isset($isComplete))){
-                $isComplete = 1;
-                $textTagSelectInRow = createTagForSelect($classSelectProperty, $nameTagSelectInRow, $settingsTags->selbi);
-
-                echo $textTagSelectInRow;
-            }
-
-        }else{
-
-            if(!ignoreTag($nameTagSelectInRow)){
-                echo "\n".$tagSelectInRow;
-            }
-
         }
-    }
+    //}
 }
 
 
-$arrRowFiles = formTagsForRowFiles($htmlForRow, $settingRowTags->allProperty);
 
-
-$html = [['div class="text-field js-text-field popup-cost-calc__text-field-inner"', 'div class="text-field__title popup-cost-calc__input-caption"',
-    '/div', 'label class="text-field__label" for="popup-cost-calc-phone"',
-    '/label', 'input class="text-field__input js-text-field__input popup-cost-calc__input" type="text" id="popup-cost-calc-phone"', '/div'],
-    ['div class="selbi popup-cost-calc__dropdown popup-cost-calc__inputs-inner popup-cost-calc__inputs-inner--select"',
-    'select class="popup-cost-calc__dropdown-select js-dropdown-battery-voltage"',
-    'option class="popup-cost-calc__dropdown-option"', '/option', 'option class="popup-cost-calc__dropdown-option"', '/option',
-    'option class="popup-cost-calc__dropdown-option"', '/option', 'option class="popup-cost-calc__dropdown-option"',
-    '/option', 'option class="popup-cost-calc__dropdown-option"', '/option', '/select', '/div'
-     ]];
 
 $settingsTags = json_decode(file_get_contents ( "setting_row.json"));
 
 
-//createSettingsForInput($html[0], $settingsTags);
+$arrRowFiles = formTagsForRowFiles($htmlForRow, $settingRowTags->allProperty);
 
-createSettingsForSelect($html[1], $settingsTags);
+createSettingsForSelect($arrRowFiles[1], $settingsTags);

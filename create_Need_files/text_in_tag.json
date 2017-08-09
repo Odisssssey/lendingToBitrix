@@ -39,7 +39,7 @@
   },
   "startinpbi": {
     "insertBefore": [
-      "<? if ($arProperty['PROPERTY_TYPE'] == 'S' && $arProperty['USER_TYPE'] !== 'DefaBoolean' && $arProperty['USER_TYPE'] !== 'HTML') :?>"
+      "<? if ($arProperty['PROPERTY_TYPE'] == 'S') :?>"
     ]
   },
   "startselbi": {
