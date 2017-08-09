@@ -39,12 +39,17 @@
   },
   "startinpbi": {
     "insertBefore": [
-      "<? if ($arProperty['PROPERTY_TYPE'] == 'S') :?>"
+      "<? if ($arProperty['PROPERTY_TYPE'] == 'S' && $arProperty['USER_TYPE'] !== 'HTML') :?>"
     ]
   },
   "startselbi": {
     "insertBefore": [
       "<?if ($arProperty['PROPERTY_TYPE'] == 'E') :?>"
+    ]
+  },
+  "starttexbi": {
+    "insertBefore": [
+      "<? if ($arProperty['PROPERTY_TYPE'] == 'S' && $arProperty['USER_TYPE'] == 'HTML') :?>"
     ]
   },
   "inpbi":{
@@ -60,6 +65,16 @@
     "insertBefore": [],
     "insertAfter": []
   },
+  "texbi":{
+    "addInTag": [""],
+    "insertBefore": [],
+    "insertAfter": []
+  },
+  "endtexbi": {
+    "insertAfter": [
+      "<?endif?>"
+    ]
+  },
   "endselbi": {
     "insertAfter": [
       "<?endif?>"
@@ -72,7 +87,8 @@
   },
   "biForRow": [
     "selbi",
-    "inpbi"
+    "inpbi",
+    "texbi"
   ],
   "isSoloTag": [
     "input"

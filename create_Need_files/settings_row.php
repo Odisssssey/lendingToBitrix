@@ -6,6 +6,9 @@
  * Time: 15:02
  *
  * times
+ *
+ * (file for test)
+ *
  */
 
 require_once('efficient_block_for_row.php');
@@ -85,12 +88,45 @@ function createSettingsForSelect($block, $settingsTags){
     //}
 }
 
+function createTagForTextarea($classTextareaProperty, $nameTagTextareaInRow, $settingsTags){
+    $textTagTextareaInRow = "\n".$settingsTags->$nameTagTextareaInRow[0];
+    $textTagTextareaInRow .= $classTextareaProperty[0];
+    $textTagTextareaInRow .= $settingsTags->$nameTagTextareaInRow[1];
+    return $textTagTextareaInRow;
+}
+
+function createSettingsForTextarea($block, $settingsTags){
+
+    //foreach($html as $block){
+    foreach ($block as $tagTextareaInRow) {
+        $nameTagTextareaInRow = explode(" ", $tagTextareaInRow)[0];
+        $classTextareaProperty = classProperty($tagTextareaInRow);
+
+        if (in_array($nameTagTextareaInRow, $settingsTags->texbi->allProperty)) {
+            if(isset($settingsTags->texbi->$nameTagTextareaInRow)){
+                $textTagTextareaInRow = createTagForTextarea($classTextareaProperty, $nameTagTextareaInRow, $settingsTags->texbi);
+
+                echo $textTagTextareaInRow;
+
+            }
+
+        } else {
+
+            echo "\n" . "<" . $tagTextareaInRow . ">";
+
+        }
+    }
+    //}
+
+}
 
 
 
 $settingsTags = json_decode(file_get_contents ( "setting_row.json"));
 
-
 $arrRowFiles = formTagsForRowFiles($htmlForRow, $settingRowTags->allProperty);
 
-createSettingsForSelect($arrRowFiles[1], $settingsTags);
+
+createSettingsForTextarea($arrRowFiles[2], $settingsTags);
+
+//createSettingsForSelect($arrRowFiles[1], $settingsTags);

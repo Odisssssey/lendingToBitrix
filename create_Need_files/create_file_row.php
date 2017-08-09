@@ -22,26 +22,26 @@ function biClass($tag, $renameTags){
 
 }
 
+function classProperty($tag){
+    preg_match_all('/class[="]+([^"]+)["]+/i', $tag, $propertyClass);
+    return $propertyClass[1];
+}
 
 function createSettingsForInput($newline, $settingsTags, $nameTagInputInRow, $biClassBlock){
 
-    preg_match_all('/class[="]+([^"]+)["]+/i', $newline, $propertyClassInRow);
+    $propertyClassInRow = classProperty($newline);
 
     if(isset($settingsTags->$biClassBlock->$nameTagInputInRow)){
 
-        $textTagInputInRow = "\n".$settingsTags->inpbi->$nameTagInputInRow[0];
-        $textTagInputInRow .= $propertyClassInRow[1][0];
-        $textTagInputInRow .= $settingsTags->inpbi->$nameTagInputInRow[1];
+        $textTagInputInRow = "\n".$settingsTags->$biClassBlock->$nameTagInputInRow[0];
+        $textTagInputInRow .= $propertyClassInRow[0];
+        $textTagInputInRow .= $settingsTags->$biClassBlock->$nameTagInputInRow[1];
         return $textTagInputInRow;
     }
     return $newline;
 
 }
 
-function classProperty($tag){
-    preg_match_all('/class[="]+([^"]+)["]+/i', $tag, $propertyClass);
-    return $propertyClass[1];
-}
 
 function createTagForSelect($classSelectProperty, $nameTagSelectInRow, $settingsTags){
     $textTagSelectInRow = "\n".$settingsTags->$nameTagSelectInRow[0];
@@ -78,6 +78,21 @@ function createSettingsForSelect($tagSelectInRow, $settingsTags, $nameTagSelectI
 
 }
 
+function createSettingsForTextarea($newline, $settingsTags, $nameTagTextareaInRow, $biClassBlock){
+
+    $propertyClassInRow = classProperty($newline);
+
+    if(isset($settingsTags->$biClassBlock->$nameTagTextareaInRow)){
+
+        $textTagTextareaInRow = "\n".$settingsTags->$biClassBlock->$nameTagTextareaInRow[0];
+        $textTagTextareaInRow .= $propertyClassInRow[0];
+        $textTagTextareaInRow .= $settingsTags->$biClassBlock->$nameTagTextareaInRow[1];
+        return $textTagTextareaInRow;
+    }
+    return $newline;
+
+}
+
 
 function ignoreTag($nameTag){
     if($nameTag == "/option"){
@@ -87,7 +102,7 @@ function ignoreTag($nameTag){
 }
 
 function writeInFile($f, $oneBlock, $renameTags, $settingsTags){
-    $biClassBlock = biClass($oneBlock[0], $renameTags);
+    $biClassBlock = biClass($oneBlock[0], $renameTags);             //need existence in text_in_tag $renameTags->'biClass'
 
     if(isset($biClassBlock)){
         $startinpbi = "start".$biClassBlock;
@@ -129,6 +144,11 @@ function writeInFile($f, $oneBlock, $renameTags, $settingsTags){
                         $textInTag = '';
                     }
                 }
+            }
+            if($biClassBlock == "texbi"){
+
+                $textInTag = createSettingsForTextarea($newline, $settingsTags, $nameTagOfLine, $biClassBlock);
+
             }
 
         }else {

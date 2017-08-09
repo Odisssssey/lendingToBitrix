@@ -4,6 +4,11 @@
  * User: anton.tarutin
  * Date: 08.08.2017
  * Time: 16:49
+ *
+ *
+ *Leaves the first block of blocks with the same tags
+ *
+ *
  */
 
 require_once('division_file_on_row_and_template.php');

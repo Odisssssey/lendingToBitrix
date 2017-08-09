@@ -21,5 +21,16 @@
       "' value='<?=$value['ID']?>'><?=$value['NAME']?></option><?endforeach ?>"
     ]
   },
+  "texbi": {
+    "allProperty": ["label", "textarea"],
+    "label": [
+      "<label class='",
+      "' for='form-field-<?=$arProperty['ID']?>-<?=$params['FORM_ID']?>'><?=$arProperty['LABEL']?> <?=$arProperty['IS_REQUIRED'] == 'Y'?'*':''?></label>"
+    ],
+    "textarea": [
+      "<textarea cols='10' rows='10' name='<?=$arProperty['FORM_NAME']?>[n0][VALUE][TEXT]' class='",
+      "' id='form-field-<?=$arProperty['ID']?>-<?=$params['FORM_ID']?>'></textarea>"
+    ]
+  },
   "allProperty": ["selbi", "inpbi", "texbi"]
 }

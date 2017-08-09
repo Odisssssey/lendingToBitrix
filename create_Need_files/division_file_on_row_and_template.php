@@ -96,8 +96,6 @@ function divideFile($html, $settingRowTags, $SoloTags){
             array_push($templateTags[0], $tags[1][$keyOriginTag]);
         }
 
-
-
     }
 
     return $templateTags;
