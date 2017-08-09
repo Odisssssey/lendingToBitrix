@@ -15,21 +15,9 @@
       <file leaf-file-name="setting_row_form.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/setting_row_form.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="34" column="4" lean-forward="false" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
+            <state relative-caret-position="17">
+              <caret line="1" column="12" lean-forward="true" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create_file_templates.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/create_file_templates.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="85" column="35" lean-forward="false" selection-start-line="85" selection-start-column="35" selection-end-line="85" selection-end-column="35" />
-              <folding>
-                <element signature="e#6#95#0#PHP" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -37,8 +25,8 @@
       <file leaf-file-name="division_file_on_row_and_template.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/division_file_on_row_and_template.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1122">
-              <caret line="99" column="37" lean-forward="false" selection-start-line="99" selection-start-column="37" selection-end-line="99" selection-end-column="37" />
+            <state relative-caret-position="85">
+              <caret line="68" column="53" lean-forward="true" selection-start-line="68" selection-start-column="44" selection-end-line="68" selection-end-column="53" />
               <folding>
                 <element signature="e#6#102#0#PHP" expanded="true" />
               </folding>
@@ -49,7 +37,7 @@
       <file leaf-file-name="efficient_block_for_row.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/efficient_block_for_row.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
+            <state relative-caret-position="238">
               <caret line="32" column="22" lean-forward="false" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
               <folding>
                 <element signature="e#6#161#0#PHP" expanded="true" />
@@ -61,7 +49,7 @@
       <file leaf-file-name="create_file_row.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/create_file_row.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="584">
+            <state relative-caret-position="3927">
               <caret line="231" column="22" lean-forward="false" selection-start-line="231" selection-start-column="22" selection-end-line="231" selection-end-column="22" />
               <folding>
                 <element signature="e#6#108#0#PHP" expanded="true" />
@@ -70,11 +58,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="action_file_for_create_files.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="action_file_for_create_files.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/action_file_for_create_files.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="18" column="62" lean-forward="false" selection-start-line="18" selection-start-column="62" selection-end-line="18" selection-end-column="62" />
+            <state relative-caret-position="340">
+              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="95" />
+              <folding>
+                <element signature="e#6#95#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="create_file_templates.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/create_file_templates.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="183">
+              <caret line="63" column="81" lean-forward="true" selection-start-line="63" selection-start-column="4" selection-end-line="63" selection-end-column="81" />
+              <folding>
+                <element signature="e#6#95#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="news_file_template_create.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/news_file_template_create.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="57" lean-forward="false" selection-start-line="8" selection-start-column="57" selection-end-line="8" selection-end-column="57" />
               <folding>
                 <element signature="e#6#95#0#PHP" expanded="true" />
               </folding>
@@ -85,8 +97,8 @@
       <file leaf-file-name="template.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/template.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="35" column="51" lean-forward="true" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
+            <state relative-caret-position="595">
+              <caret line="35" column="51" lean-forward="false" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -95,7 +107,7 @@
       <file leaf-file-name="form-row.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/form-row.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
+            <state relative-caret-position="434">
               <caret line="31" column="9" lean-forward="false" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
               <folding />
             </state>
@@ -105,8 +117,8 @@
       <file leaf-file-name="text_in_tag.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/text_in_tag.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="29" column="3" lean-forward="true" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="10" />
+            <state relative-caret-position="187">
+              <caret line="11" column="20" lean-forward="false" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -133,13 +145,14 @@
         <option value="$PROJECT_DIR$/text_in_tag.json" />
         <option value="$PROJECT_DIR$/block_for_rowOLD.php" />
         <option value="$PROJECT_DIR$/cteate_file_templates.php" />
-        <option value="$PROJECT_DIR$/action_file_for_create_files.php" />
-        <option value="$PROJECT_DIR$/division_file_on_row_and_template.php" />
         <option value="$PROJECT_DIR$/create_file_templates.php" />
         <option value="$PROJECT_DIR$/efficient_block_for_row.php" />
         <option value="$PROJECT_DIR$/create_file_row.php" />
         <option value="$PROJECT_DIR$/form-row.php" />
+        <option value="$PROJECT_DIR$/action_file_for_create_files.php" />
+        <option value="$PROJECT_DIR$/division_file_on_row_and_template.php" />
         <option value="$PROJECT_DIR$/template.php" />
+        <option value="$PROJECT_DIR$/news_file_template_create.php" />
       </list>
     </option>
   </component>
@@ -208,9 +221,6 @@
     <configuration default="false" name="create_file_templates.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/create_file_templates.php">
       <method />
     </configuration>
-    <configuration default="false" name="block_for_rowOLD.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/block_for_rowOLD.php">
-      <method />
-    </configuration>
     <configuration default="false" name="action_file_for_create_files.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/action_file_for_create_files.php">
       <method />
     </configuration>
@@ -218,6 +228,9 @@
       <method />
     </configuration>
     <configuration default="false" name="efficient_block_for_row.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/efficient_block_for_row.php">
+      <method />
+    </configuration>
+    <configuration default="false" name="news_file_template_create.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/news_file_template_create.php">
       <method />
     </configuration>
     <configuration default="true" type="CodeceptionConfigurationType" factoryName="Codeception">
@@ -289,18 +302,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="PHP Script.create_file_templates.php" />
-      <item index="1" class="java.lang.String" itemvalue="PHP Script.block_for_rowOLD.php" />
-      <item index="2" class="java.lang.String" itemvalue="PHP Script.action_file_for_create_files.php" />
-      <item index="3" class="java.lang.String" itemvalue="PHP Script.division_file_on_row_and_template.php" />
-      <item index="4" class="java.lang.String" itemvalue="PHP Script.efficient_block_for_row.php" />
+      <item index="1" class="java.lang.String" itemvalue="PHP Script.action_file_for_create_files.php" />
+      <item index="2" class="java.lang.String" itemvalue="PHP Script.division_file_on_row_and_template.php" />
+      <item index="3" class="java.lang.String" itemvalue="PHP Script.efficient_block_for_row.php" />
+      <item index="4" class="java.lang.String" itemvalue="PHP Script.news_file_template_create.php" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="PHP Script.action_file_for_create_files.php" />
         <item index="1" class="java.lang.String" itemvalue="PHP Script.create_file_templates.php" />
-        <item index="2" class="java.lang.String" itemvalue="PHP Script.efficient_block_for_row.php" />
-        <item index="3" class="java.lang.String" itemvalue="PHP Script.division_file_on_row_and_template.php" />
-        <item index="4" class="java.lang.String" itemvalue="PHP Script.block_for_rowOLD.php" />
+        <item index="2" class="java.lang.String" itemvalue="PHP Script.news_file_template_create.php" />
+        <item index="3" class="java.lang.String" itemvalue="PHP Script.efficient_block_for_row.php" />
+        <item index="4" class="java.lang.String" itemvalue="PHP Script.division_file_on_row_and_template.php" />
       </list>
     </recent_temporary>
   </component>
@@ -327,10 +340,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="180500000" />
+    <option name="totallyTimeSpent" value="183694000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="50" y="0" width="1875" height="1040" extended-state="1" />
+    <frame x="50" y="0" width="1875" height="1040" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -379,14 +392,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/create_file_rowOLD.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5168">
-          <caret line="304" column="0" lean-forward="false" selection-start-line="304" selection-start-column="0" selection-end-line="304" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/form-row.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -721,41 +726,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/text_in_tag.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="3" lean-forward="true" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/setting_row_form.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="4" lean-forward="false" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/form-row.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="9" lean-forward="false" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="35" column="51" lean-forward="true" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/create_file_row.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="584">
+        <state relative-caret-position="3927">
           <caret line="231" column="22" lean-forward="false" selection-start-line="231" selection-start-column="22" selection-end-line="231" selection-end-column="22" />
           <folding>
             <element signature="e#6#108#0#PHP" expanded="true" />
@@ -763,9 +736,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/setting_row_form.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="12" lean-forward="true" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/text_in_tag.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="20" lean-forward="false" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/efficient_block_for_row.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
+        <state relative-caret-position="238">
           <caret line="32" column="22" lean-forward="false" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
           <folding>
             <element signature="e#6#161#0#PHP" expanded="true" />
@@ -773,20 +762,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/division_file_on_row_and_template.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="99" column="37" lean-forward="false" selection-start-line="99" selection-start-column="37" selection-end-line="99" selection-end-column="37" />
-          <folding>
-            <element signature="e#6#102#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/create_file_templates.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="85" column="35" lean-forward="false" selection-start-line="85" selection-start-column="35" selection-end-line="85" selection-end-column="35" />
+        <state relative-caret-position="183">
+          <caret line="63" column="81" lean-forward="true" selection-start-line="63" selection-start-column="4" selection-end-line="63" selection-end-column="81" />
           <folding>
             <element signature="e#6#95#0#PHP" expanded="true" />
           </folding>
@@ -795,8 +774,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/action_file_for_create_files.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="18" column="62" lean-forward="false" selection-start-line="18" selection-start-column="62" selection-end-line="18" selection-end-column="62" />
+        <state relative-caret-position="340">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="95" />
+          <folding>
+            <element signature="e#6#95#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" column="51" lean-forward="false" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/form-row.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="31" column="9" lean-forward="false" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/division_file_on_row_and_template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="68" column="53" lean-forward="true" selection-start-line="68" selection-start-column="44" selection-end-line="68" selection-end-column="53" />
+          <folding>
+            <element signature="e#6#102#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/news_file_template_create.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="57" lean-forward="false" selection-start-line="8" selection-start-column="57" selection-end-line="8" selection-end-column="57" />
           <folding>
             <element signature="e#6#95#0#PHP" expanded="true" />
           </folding>
