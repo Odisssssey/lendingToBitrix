@@ -1,0 +1,78 @@
+<form class="frmbi popup-cost__form" name="popup-cost">
+	<p class="prfbi popup-cost-calc__title">Расчет стоимости восстановления аккумулятора</p>
+	<div class="fehbi popup-cost-calc__inputs-wrapper">
+		
+		
+		
+		<div class="inpbi popup-cost-calc__inputs-inner">
+			<div class="text-field js-text-field popup-cost-calc__text-field-inner">
+				<div class="text-field__title popup-cost-calc__input-caption">Телефон</div>
+				<label class="text-field__label" for="popup-cost-calc-phone">Телефон</label>
+				<input class="text-field__input js-text-field__input popup-cost-calc__input" type="text" id="popup-cost-calc-phone">
+			</div>
+		</div>
+		<div class="inpbi popup-cost-calc__inputs-inner">
+			<div class="text-field js-text-field popup-cost-calc__text-field-inner">
+				<div class="text-field__title popup-cost-calc__input-caption">Телефон</div>
+				<label class="text-field__label" for="popup-cost-calc-phone">Телефон</label>
+				<input class="text-field__input js-text-field__input popup-cost-calc__input" type="text" id="popup-cost-calc-phone">
+			</div>
+		</div>
+		<div class="inpbi popup-cost-calc__inputs-inner">
+			<div class="text-field js-text-field popup-cost-calc__text-field-inner">
+				<div class="text-field__title popup-cost-calc__input-caption">Электронный адрес</div>
+				<label class="text-field__label" for="popup-cost-calc-mail">Электронный адрес</label>
+				<input class="text-field__input js-text-field__input popup-cost-calc__input" type="text" id="popup-cost-calc-mail">
+			</div>
+		</div>
+		
+		<div class="selbi popup-cost-calc__dropdown popup-cost-calc__inputs-inner popup-cost-calc__inputs-inner--select">
+			<select class="popup-cost-calc__dropdown-select js-dropdown-battery-voltage">
+				<option class="popup-cost-calc__dropdown-option"></option>
+				<option class="popup-cost-calc__dropdown-option">Напряжение аккумулятора 1</option>
+				<option class="popup-cost-calc__dropdown-option">Напряжение аккумулятора 2</option>
+				<option class="popup-cost-calc__dropdown-option">Напряжение аккумулятора 3</option>
+				<option class="popup-cost-calc__dropdown-option">Напряжение аккумулятора 4</option>
+			</select>
+		</div>
+		<div class="selbi popup-cost-calc__dropdown popup-cost-calc__inputs-inner popup-cost-calc__inputs-inner--select">
+			<select class="popup-cost-calc__dropdown-select js-dropdown-battery-voltage">
+				<option class="popup-cost-calc__dropdown-option"></option>
+				<option class="popup-cost-calc__dropdown-option">Напряжение аккумулятора 1</option>
+				<option class="popup-cost-calc__dropdown-option">Напряжение аккумулятора 2</option>
+				<option class="popup-cost-calc__dropdown-option">Напряжение аккумулятора 3</option>
+				<option class="popup-cost-calc__dropdown-option">Напряжение аккумулятора 4</option>
+			</select>
+		</div>
+		
+		<div class="texbi popup-cost-calc__inputs-inner popup-cost-calc__inputs-inner--textarea">
+			<div class="text-field js-text-field popup-cost-calc__text-field">
+				<div class="text-field__title popup-cost-calc__input-caption">Комментарий</div>
+				<label class="text-field__label popup-cost-calc__label" for="popup-cost-calc-comment">Комментарий</label>
+				<textarea class="text-field__input js-text-field__input popup-cost-calc__textarea" id="popup-cost-calc-comment"></textarea>
+			</div>
+		</div>		
+		
+		
+		<div class="chbbi popup-diagnostics__checkbox-wrapper">
+			<div class="checkbox"><span class="checkbox__custom-checkbox-wrap">
+				<input class="checkbox__custom-checkbox-input" type="checkbox" id="popup-diagnostics-agreement" name="popup-diagnostics-agreement" checked required><span class="checkbox__custom-checkbox-inner">
+					<svg class="checkbox__custom-checkbox-icon">
+					  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<?=SITE_TEMPLATE_PATH?>/icons/sprite.svg#check"></use>
+					</svg></span>
+				<svg class="checkbox__custom-checkbox-border">
+					<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<?=SITE_TEMPLATE_PATH?>/icons/sprite.svg#checkbox-border"></use>
+				</svg>
+				</span>
+				<label class="checkbox__label" for="popup-diagnostics-agreement">Подтверждаю согласие на обработку моих<a class="checkbox__label-link js-personal-data-open">персональных данных</a>
+				</label>
+			</div>
+		</div>
+		
+		<div class="butbi popup-diagnostics__button-wrap">
+		    <?$arParams["BUTTON_TITLE"] = 'Отправить заявку';?>
+			<button class="button popup-callback__button js-popup-callback-submit" name="iblock_submit" type="submit"><?= $arParams["BUTTON_TITLE"] ?></button>    
+		</div>
+		
+	</div>
+</form>

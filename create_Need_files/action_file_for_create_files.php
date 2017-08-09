@@ -16,7 +16,7 @@ require_once ("create_file_templates.php");
 
 $settingFile = json_decode(file_get_contents ( "text_in_tag.json"));
 
-$settingRowTags = json_decode(file_get_contents ( "setting_row.json"));
+$settingRowTags = json_decode(file_get_contents ( "setting_row_form.json"));
 
 $html = file_get_contents("http://university.netology.ru/user_data/tarutin/bitrix/index.html");
 
@@ -31,13 +31,3 @@ startCreateFileRow($arrRowFiles, $settingFile, $settingRowTags);
 startCreateFileTemplate($html, $htmlForFiles[0], $settingFile);
 
 
-
-//
-/////start block template
-//
-//$htmlForTemplate = divideFile($html, $settingRowTags->allProperty, $settingFile->isSoloTag); // in division_file_on_row_and_template
-//
-//
-//startCreateFileTemplate($html, $htmlForTemplate[0], $renameTags);  ///$html in  division_file_on_row_and_template.php
-//
-/////end block template

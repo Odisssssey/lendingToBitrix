@@ -97,7 +97,7 @@ function divideFile($html, $settingRowTags, $SoloTags){
         }
 
     }
-    echo "\n"."tags for files is done";
+    echo "\n"."(form) tags for files is done";
     return $templateTags;
 }
 
@@ -105,7 +105,7 @@ function divideFile($html, $settingRowTags, $SoloTags){
 
 $settingFile = json_decode(file_get_contents ( "text_in_tag.json"));
 
-$settingRowTags = json_decode(file_get_contents ( "setting_row.json"));
+$settingRowTags = json_decode(file_get_contents ( "setting_row_form.json"));
 
 $html = file_get_contents("http://university.netology.ru/user_data/tarutin/bitrix/index.html");
 //

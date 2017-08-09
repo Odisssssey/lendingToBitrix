@@ -83,7 +83,7 @@ function startCreateFileTemplate($html, $templateTags, $renameTags){
     writeEndText($renameTags, $f);
     fclose($f);
 
-    echo "\n"."template.php is done";
+    echo "\n"."(form) template.php is done";
 }
 
 //

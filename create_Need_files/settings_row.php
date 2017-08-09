@@ -122,7 +122,7 @@ function createSettingsForTextarea($block, $settingsTags){
 
 
 
-$settingsTags = json_decode(file_get_contents ( "setting_row.json"));
+$settingsTags = json_decode(file_get_contents ( "setting_row_form.json"));
 
 $arrRowFiles = formTagsForRowFiles($htmlForRow, $settingRowTags->allProperty);
 

@@ -30,7 +30,7 @@ function formTagsForRowFiles($htmlForRow, $settingRowTags){           //this par
 
     }
 
-    echo "\n"."sort block for row is done";
+    echo "\n"."(form) sort block for row is done";
     return $originalBlocks;
 
 }
