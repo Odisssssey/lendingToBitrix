@@ -40,4 +40,3 @@
 </div>
 </div>
 </form>
-<? if ($arResult['AJAX_CALL']) { die(); } ?>
