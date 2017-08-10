@@ -6,7 +6,62 @@
  * Time: 19:07
  */
 
-function sortForTemplateFileNavigate($html, $propertyNewsFile, $SoloTags){
+function findBitrixTag($tag, $propertyNavFile){
+    preg_match_all ( '/class="([\w]+)/i' , $tag, $potentiallyBitrixClass);
+    if(isset($potentiallyBitrixClass[1][0])){
+        if(in_array($potentiallyBitrixClass[1][0],  $propertyNavFile)){
+            return $potentiallyBitrixClass[1][0];
+        }
+    }
+}
+
+function isBitrixTag($tag, $propertyNavFile){
+    if (findBitrixTag($tag, $propertyNavFile) != ""){
+        return 1;
+    }else{
+        return 0;
+    }
+}
+
+function isOpenTag($nameTag){
+    preg_match_all ( '/[^ ]/i' , $nameTag , $symbolOfWord);
+    if($symbolOfWord[0][0] == "/"){
+        return 0;
+    }
+    return 1;
+}
+
+function BitrixNavBlock($tag, $nameOriginTag, $propertyNavFile, $SoloTags, $tagInStack){
+
+    if(isBitrixTag($tag, $propertyNavFile)){
+        array_push($tagInStack, $nameOriginTag);
+        return $tagInStack;
+    }
+
+    if(count($tagInStack)>0){
+        if(isOpenTag($nameOriginTag)){
+
+            if(!in_array($nameOriginTag, $SoloTags)){
+                array_push($tagInStack, $nameOriginTag);
+            }
+
+        }else{
+            array_pop ($tagInStack);
+        }
+
+    }
+
+    return $tagInStack;
+}
+
+function isBitrixBlock($tagInStack){
+    if(count($tagInStack) > 0){
+        return 1;
+    }
+    return 0;
+}
+
+function sortForTemplateFileNavigate($html, $propertyNavFile, $SoloTags){
     $templateTags = [[], []];
     $timesTagsforTemplate = [];
     $tagInStack = [];
@@ -17,7 +72,7 @@ function sortForTemplateFileNavigate($html, $propertyNewsFile, $SoloTags){
     foreach ($tags[1] as $keyOriginTag=>$tag) {
         $nameOriginTag = explode(" ",$tag)[0];
 
-        $tagInStack = BitrixNewsBlock($tag, $nameOriginTag, $propertyNewsFile, $SoloTags, $tagInStack);
+        $tagInStack = BitrixNavBlock($tag, $nameOriginTag, $propertyNavFile, $SoloTags, $tagInStack);
 
         $isBitrixBlock = isBitrixBlock($tagInStack);
 
@@ -41,9 +96,9 @@ function sortForTemplateFileNavigate($html, $propertyNewsFile, $SoloTags){
 
     }
 
-    echo "\n"."(news) source array is done";
+//    echo "\n"."(nav) source array is done";
 
-    return $templateTags;
+    var_dump($templateTags);
 
 
 }
@@ -51,7 +106,11 @@ function sortForTemplateFileNavigate($html, $propertyNewsFile, $SoloTags){
 
 $html = file_get_contents("http://university.netology.ru/user_data/tarutin//bitrix/nav/index.html");
 
-var_dump($html);
+$settingNewsFile = json_decode(file_get_contents ( "setting_template_nav.json"));
+
+$configFile = json_decode(file_get_contents ( "../config.json"));
+
+sortForTemplateFileNavigate($html, $settingNewsFile->allProperty, $configFile->isSoloTag);
 
 
 
