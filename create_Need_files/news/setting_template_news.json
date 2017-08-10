@@ -1,9 +1,10 @@
 {
   "slibi": {
-    "allProperty": ["input"],
-    "input": [
-      "<input type='text' name='<?=$arProperty['FORM_NAME']?>' class='",
-      " field-name-<?=$arProperty['CODE']?><?=$arProperty['IS_REQUIRED'] == 'Y'?'required':''?>' id='form-field-<?=$arProperty['ID']?>'>"
+    "allProperty": ["imgbi"],
+    "imgbi": [
+      "<img class='",
+      "' src='<?=$arItem['PREVIEW_PICTURE']['SRC']?>' alt=''/><?else:?><img class='",
+      "' src='<?=$arItem['PREVIEW_PICTURE']['SRC']?>' alt=''/>"
     ]
   },
   "allProperty": ["slibi"]

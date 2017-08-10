@@ -6,7 +6,7 @@
  * Time: 12:47
  */
 
-require_once("news_create_file_source_for_template.php");
+//require_once("news_create_file_source_for_template.php");
 
 function writeStartText($renameTags, $f){
     if(isset($renameTags->startTemplate->insertBefore)){
@@ -60,27 +60,103 @@ function biClass($tag, $renameTags){
 
 }
 
-function workWithNewLineOfBlock($f, $biClassBlock, $renameTags){
-    if(isset($renameTags->$biClassBlock)){
+function classProperty($tag){
+    preg_match_all('/class[="]+([^"]+)["]+/i', $tag, $propertyClass);
+    return $propertyClass[1];
+}
 
-        foreach ($renameTags->$biClassBlock->insertBefore as $insertBefore){
+function createSlideForNews($tag, $settingsTags, $biClass, $biClassBlock){
+
+    $propertyClassInRow = classProperty($tag);
+
+    if(isset($settingsTags->$biClassBlock->$biClass)){
+
+        $textTagTextareaInRow = "\n".$settingsTags->$biClassBlock->$biClass[0];
+        $textTagTextareaInRow .= $propertyClassInRow[0];
+        $textTagTextareaInRow .= $settingsTags->$biClassBlock->$biClass[1];
+        $textTagTextareaInRow .= $propertyClassInRow[0];
+        $textTagTextareaInRow .= $settingsTags->$biClassBlock->$biClass[2];
+        return $textTagTextareaInRow;
+    }
+    return $tag;
+
+}
+
+function workWithTagOfLine($tag, $biClass, $biClassBlock, $settingNewsFile, $renameTags){
+
+    if(isset($settingNewsFile->$biClassBlock->allProperty) && in_array($biClass, $settingNewsFile->$biClassBlock->allProperty)) {
+
+        if ($biClassBlock == "slibi") {
+
+            $textTag = createSlideForNews($tag, $settingNewsFile, $biClass, $biClassBlock);
+
+        }
+    }else{
+
+        $textTag = "\n" . "<" . $tag;
+        foreach ($renameTags->$biClass->addInTag as $addInTag) {
+            $textTag .= " " . $addInTag;
+        }
+        $textTag .= ">";
+    }
+
+    return $textTag;
+
+}
+
+function workWithNewLineOfBlock($f, $tag, $biClass, $biClassBlock, $renameTags, $settingNewsFile){
+    if(isset($renameTags->$biClass)){
+
+        foreach ($renameTags->$biClass->insertBefore as $insertBefore){
             $textInsertBefore = "\n".$insertBefore;
             fwrite($f, $textInsertBefore);
         }
 
+
+        $textTag = workWithTagOfLine($tag, $biClass, $biClassBlock, $settingNewsFile, $renameTags);
+
+
+        fwrite($f, $textTag);
+
+        foreach ($renameTags->$biClass->insertAfter as $insertAfter){
+            $textInsertAfter = "\n".$insertAfter;
+            fwrite($f, $textInsertAfter);
+        }
+
+    }else{
+        $textTag = "\n"."<".$tag.">";
+        fwrite($f, $textTag);
+    }
+
+}
+
+function workWithBlock($f, $block, $biClassBlock, $renameTags, $settingNewsFile){
+    foreach ($block as $newLine){
+        $biClass = biClass($newLine, $renameTags);             //need existence in text_in_tag $renameTags->'biClass'
+        workWithNewLineOfBlock($f, $newLine, $biClass, $biClassBlock, $renameTags, $settingNewsFile);
+    }
+
+}
+
+function writeEndext($renameTags, $f){
+    if(isset($renameTags->endslibi->insertBefore)){
+        foreach ($renameTags->endslibi->insertBefore as $lastTag){
+            $textStartTag = "\n".$lastTag;
+            fwrite($f, $textStartTag);
+        }
     }
 }
 
-function writeHeartOfTemplateFile($f, $heartArraysTags, $propertyNewsFile, $renameTags){
+function writeHeartOfTemplateFile($f, $heartArraysTags, $propertyNewsFile, $renameTags, $settingNewsFile){
 
     $originalBlocks = formTagsForRowFiles($heartArraysTags, $propertyNewsFile);
 
     foreach ($originalBlocks as $block){
-        $biClassBlock = biClass($block[0], $renameTags);             //need existence in text_in_tag $renameTags->'biClass'
-        /////begin work
-        workWithNewLineOfBlock($f, $biClassBlock, $renameTags);
+        $biClassBlock = biClass($block[0], $renameTags);
+        workWithBlock($f, $block, $biClassBlock, $renameTags, $settingNewsFile);
 
     }
+    writeEndext($renameTags, $f);
 }
 
 
@@ -94,12 +170,12 @@ function writeEndOfFile($f, $sourcesTagsForEnd){
 }
 
 
-function startWriteInTemplateFile($f, $sourcesTags, $propertyNewsFile, $renameTags){
+function startWriteInTemplateFile($f, $sourcesTags, $propertyNewsFile, $renameTags, $settingNewsFile){
 
 
     writeInceptionOfFile($f, $sourcesTags[0], $renameTags);
 
-    writeHeartOfTemplateFile($f, $sourcesTags[1], $propertyNewsFile, $renameTags);
+    writeHeartOfTemplateFile($f, $sourcesTags[1], $propertyNewsFile, $renameTags, $settingNewsFile);
 
 
     writeEndOfFile($f, $sourcesTags[0]);
@@ -107,21 +183,21 @@ function startWriteInTemplateFile($f, $sourcesTags, $propertyNewsFile, $renameTa
 }
 
 
-function startCreateTemplateNewsFile($sourcesTags, $propertyNewsFile, $renameTags){
+function startCreateTemplateNewsFile($sourcesTags, $propertyNewsFile, $renameTags, $settingNewsFile){
     $f = fopen("template_news.php", 'w+');
 
-    startWriteInTemplateFile($f, $sourcesTags, $propertyNewsFile, $renameTags);
+    startWriteInTemplateFile($f, $sourcesTags, $propertyNewsFile, $renameTags, $settingNewsFile);
 
     fclose($f);
-//    echo "\n"."(news) form-row.php is done";
+    echo "\n"."(news) form-row.php is done";
 }
 
 
-$renameTags = json_decode(file_get_contents ( "text_in_tag_news.json"));
-
-$sources = sortForTemplateFileNewsList($html, $settingNewsFile->allProperty, $configFile->isSoloTag);
-
-startCreateTemplateNewsFile($sources, $settingNewsFile->allProperty, $renameTags);
+//$renameTags = json_decode(file_get_contents ( "text_in_tag_news.json"));
+//
+//$sources = sortForTemplateFileNewsList($html, $settingNewsFile->allProperty, $configFile->isSoloTag);
+//
+//startCreateTemplateNewsFile($sources, $settingNewsFile->allProperty, $renameTags, $settingNewsFile);
 
 
 

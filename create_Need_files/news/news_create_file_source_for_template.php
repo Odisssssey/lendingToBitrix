@@ -102,16 +102,18 @@ function sortForTemplateFileNewsList($html, $propertyNewsFile, $SoloTags){
 
     }
 
+    echo "\n"."(news) source array is done";
+
     return $templateTags;
 
 
 }
 
-$settingNewsFile = json_decode(file_get_contents ( "setting_template_news.json"));
-
-$html = file_get_contents("http://university.netology.ru/user_data/tarutin//bitrix/newslist/index.html");
-
-$configFile = json_decode(file_get_contents ( "../config.json"));
+//$settingNewsFile = json_decode(file_get_contents ( "setting_template_news.json"));
+//
+//$html = file_get_contents("http://university.netology.ru/user_data/tarutin//bitrix/newslist/index.html");
+//
+//$configFile = json_decode(file_get_contents ( "../config.json"));
 //
 //
 //
