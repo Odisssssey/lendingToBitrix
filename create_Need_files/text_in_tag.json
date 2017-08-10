@@ -90,7 +90,11 @@
     "inpbi",
     "texbi"
   ],
+  "biForNew": [
+    "slibi"
+  ],
   "isSoloTag": [
-    "input"
+    "input",
+    "img"
   ]
 }
