@@ -235,7 +235,7 @@ function startCreateFileRow($rowTags, $renameTags, $settingsTags){
 
 //$settingsTags = json_decode(file_get_contents ( "setting_row_form.json"));
 //
-//$renameTags = json_decode(file_get_contents ( "text_in_tag.json"));
+//$renameTags = json_decode(file_get_contents ( "text_in_tag_form.json"));
 //
 //
 //$arrRowFiles = formTagsForRowFiles($htmlForRow, $settingRowTags->allProperty);  //in efficient_block_for_row.php

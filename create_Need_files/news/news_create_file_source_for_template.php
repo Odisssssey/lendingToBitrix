@@ -55,9 +55,7 @@ function BitrixNewsBlock($tag, $nameOriginTag, $propertyNewsFile, $SoloTags, $ta
             array_pop ($tagInStack);
         }
 
-
     }
-
 
     return $tagInStack;
 }
@@ -77,7 +75,6 @@ function startCreateNewsListFileTemplate($html, $propertyNewsFile, $SoloTags){
     $isBitrixBlock = 0;
 
 
-
     preg_match_all ( '/<([^>]+)>/i' , $html , $tags);
     foreach ($tags[1] as $keyOriginTag=>$tag) {
         $nameOriginTag = explode(" ",$tag)[0];
@@ -85,8 +82,6 @@ function startCreateNewsListFileTemplate($html, $propertyNewsFile, $SoloTags){
         $tagInStack = BitrixNewsBlock($tag, $nameOriginTag, $propertyNewsFile, $SoloTags, $tagInStack);
 
         $isBitrixBlock = isBitrixBlock($tagInStack);
-        var_dump($tagInStack);
-
 
         if($isBitrixBlock){
             array_push($timesTagsforTemplate, $tags[1][$keyOriginTag]);
@@ -99,18 +94,12 @@ function startCreateNewsListFileTemplate($html, $propertyNewsFile, $SoloTags){
                 array_push($templateTags[1], $timesTagsforTemplate);
                 $timesTagsforTemplate = [];
 
-
                 continue;
             }
 
             array_push($templateTags[0], $tags[1][$keyOriginTag]);
 
         }
-
-
-
-
-
 
     }
 
@@ -122,10 +111,10 @@ function startCreateNewsListFileTemplate($html, $propertyNewsFile, $SoloTags){
 
 $settingNewsFile = json_decode(file_get_contents ( "setting_template_news.json"));
 
-$settingFile = json_decode(file_get_contents ( "text_in_tag.json"));
-
 $html = file_get_contents("http://university.netology.ru/user_data/tarutin//bitrix/newslist/index.html");
 
+$configFile = json_decode(file_get_contents ( "../config.json"));
 
 
-startCreateNewsListFileTemplate($html, $settingNewsFile->allProperty, $settingFile->isSoloTag);
+
+startCreateNewsListFileTemplate($html, $settingNewsFile->allProperty, $configFile->isSoloTag);

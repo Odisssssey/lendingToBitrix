@@ -103,7 +103,7 @@ function divideFile($html, $settingRowTags, $SoloTags){
 
 
 
-//$settingFile = json_decode(file_get_contents ( "text_in_tag.json"));
+//$settingFile = json_decode(file_get_contents ( "text_in_tag_form.json"));
 //
 //$settingRowTags = json_decode(file_get_contents ( "setting_row_form.json"));
 //

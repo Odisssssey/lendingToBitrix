@@ -1,0 +1,96 @@
+{
+  "frmbi": {
+    "addInTag": [
+      "action='<?= POST_FORM_ACTION_URI ?>'",
+      "method='post'",
+      "id='iblock_add_request_call'"
+    ],
+    "insertBefore": [
+      "<? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) { die(); } use Bitrix/Main/Localization/Loc; Loc::loadMessages(__FILE__); $this->setFrameMode(true); ?>",
+      "<? if ($arResult['AJAX_CALL']) : $APPLICATION->RestartBuffer(); endif;<? if ($arResult['AJAX_CALL']) : $APPLICATION->RestartBuffer(); endif; ?>"
+    ],
+    "insertAfter": [
+
+    ]
+  },
+  "fehbi": {
+    "addInTag": [],
+    "insertBefore": [
+
+    ],
+    "insertAfter": [
+      "<input type='hidden' name='iblock_submit' value='Y'/> <input type='hidden' name='form_<?= $arParams['ORM_ID'] ?>' value='Y'/> <?= bitrix_sessid_post() ?>']",
+      "<?= bitrix_sessid_post() ?>",
+      "<? foreach ($arResult['GROUPS'] as $group) : ?>",
+      "<? foreach ($group['FIELDS'] as $arProperty) :  CDFASiteTemplateTools::IncludeFile('form-diagnostic-row.php', array( 'arProperty' => $arProperty, 'params'   => $arParams, 'fieldClass' => 'js-field-title', )); ?>",
+      "<? endforeach ?>",
+      "<? endforeach ?> "
+    ]
+  },
+  "endForm": {
+    "insertAfter": [
+      "<? if ($arResult['AJAX_CALL']) { die(); } ?>"
+    ]
+  },
+  "startRow":{
+    "insertBefore": [
+      "<? if (! defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die(); ?>"
+    ]
+  },
+  "startinpbi": {
+    "insertBefore": [
+      "<? if ($arProperty['PROPERTY_TYPE'] == 'S' && $arProperty['USER_TYPE'] !== 'HTML') :?>"
+    ]
+  },
+  "startselbi": {
+    "insertBefore": [
+      "<?if ($arProperty['PROPERTY_TYPE'] == 'E') :?>"
+    ]
+  },
+  "starttexbi": {
+    "insertBefore": [
+      "<? if ($arProperty['PROPERTY_TYPE'] == 'S' && $arProperty['USER_TYPE'] == 'HTML') :?>"
+    ]
+  },
+  "inpbi":{
+    "addInTag": [],
+    "addInProperty": {
+      "class": [" <?=$fieldClass?>"]
+    },
+    "insertBefore": [],
+    "insertAfter": []
+  },
+  "selbi":{
+    "addInTag": [""],
+    "insertBefore": [],
+    "insertAfter": []
+  },
+  "texbi":{
+    "addInTag": [""],
+    "insertBefore": [],
+    "insertAfter": []
+  },
+  "endtexbi": {
+    "insertAfter": [
+      "<?endif?>"
+    ]
+  },
+  "endselbi": {
+    "insertAfter": [
+      "<?endif?>"
+    ]
+  },
+  "endinpbi": {
+    "insertAfter": [
+      "<?endif?>"
+    ]
+  },
+  "biForRow": [
+    "selbi",
+    "inpbi",
+    "texbi"
+  ],
+  "biForNew": [
+    "slibi"
+  ]
+}

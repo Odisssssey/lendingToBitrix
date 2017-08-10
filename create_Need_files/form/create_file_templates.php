@@ -92,7 +92,7 @@ function startCreateFileTemplate($html, $templateTags, $renameTags){
 //$htmlForTemplate = divideFile($html, $settingRowTags->allProperty, $settingFile->isSoloTag); // in division_file_on_row_and_template
 //
 //
-//$renameTags = json_decode(file_get_contents ( "text_in_tag.json"));
+//$renameTags = json_decode(file_get_contents ( "text_in_tag_form.json"));
 //
 //startCreateFileTemplate($html, $htmlForTemplate[0], $renameTags);  ///$html in  division_file_on_row_and_template.php
 

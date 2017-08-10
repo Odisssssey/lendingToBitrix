@@ -14,14 +14,16 @@ require_once ("create_file_templates.php");
 
 
 
-$settingFile = json_decode(file_get_contents ( "text_in_tag.json"));
+$settingFile = json_decode(file_get_contents ( "text_in_tag_form.json"));
 
 $settingRowTags = json_decode(file_get_contents ( "setting_row_form.json"));
+
+$configFile = json_decode(file_get_contents ( "../config.json"));
 
 $html = file_get_contents("http://university.netology.ru/user_data/tarutin/bitrix/index.html");
 
 
-$htmlForFiles = divideFile($html, $settingRowTags->allProperty, $settingFile->isSoloTag); //in division_file_on_row_and_template.php
+$htmlForFiles = divideFile($html, $settingRowTags->allProperty, $configFile->isSoloTag); //in division_file_on_row_and_template.php
 
 
 $arrRowFiles = formTagsForRowFiles($htmlForFiles[1], $settingRowTags->allProperty);  //in efficient_block_for_row.php
