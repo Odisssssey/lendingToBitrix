@@ -17,7 +17,9 @@ $configFile = json_decode(file_get_contents ( "../config.json"));
 
 
 
-startCreateNewsListFileTemplate($html, $settingNewsFile->allProperty, $configFile->isSoloTag);
+$sources = sortForTemplateFileNewsList($html, $settingNewsFile->allProperty, $configFile->isSoloTag);
+
+var_dump($sources);
 
 
 

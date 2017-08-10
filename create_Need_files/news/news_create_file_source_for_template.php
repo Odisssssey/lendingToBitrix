@@ -67,8 +67,7 @@ function isBitrixBlock($tagInStack){
     return 0;
 }
 
-function startCreateNewsListFileTemplate($html, $propertyNewsFile, $SoloTags){
-    $f = fopen("template_news.php", 'w+');
+function sortForTemplateFileNewsList($html, $propertyNewsFile, $SoloTags){
     $templateTags = [[], []];
     $timesTagsforTemplate = [];
     $tagInStack = [];
@@ -103,9 +102,8 @@ function startCreateNewsListFileTemplate($html, $propertyNewsFile, $SoloTags){
 
     }
 
-    var_dump($templateTags);
+    return $templateTags;
 
-    fclose($f);
 
 }
 
@@ -114,7 +112,7 @@ $settingNewsFile = json_decode(file_get_contents ( "setting_template_news.json")
 $html = file_get_contents("http://university.netology.ru/user_data/tarutin//bitrix/newslist/index.html");
 
 $configFile = json_decode(file_get_contents ( "../config.json"));
-
-
-
-startCreateNewsListFileTemplate($html, $settingNewsFile->allProperty, $configFile->isSoloTag);
+//
+//
+//
+//startCreateNewsListFileTemplate($html, $settingNewsFile->allProperty, $configFile->isSoloTag);
