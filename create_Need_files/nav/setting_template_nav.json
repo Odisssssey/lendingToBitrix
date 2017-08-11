@@ -1,7 +1,10 @@
 {
-  "navbi": {
-    "allProperty": ["ulibi"],
-    "ulibi": []
+  "litbi": {
+    "allProperty": ["ancbi"],
+    "ancbi": [
+      "<a class='",
+      "' href='<?=$arItem['LINK']?>' ><?=$arItem['TEXT']?>"
+    ]
   },
-  "allProperty": ["ulibi"]
+  "allProperty": ["litbi"]
 }

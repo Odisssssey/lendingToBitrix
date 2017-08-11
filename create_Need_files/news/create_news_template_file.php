@@ -44,7 +44,7 @@ function formTagsForRowFiles($heartArraysTags, $propertyNewsFile){
 
     }
 
-//    echo "\n"."(news) sort block for row is done";
+    echo "\n"."(news) sort block is done";
     return $originalBlocks;
 
 }
@@ -138,7 +138,7 @@ function workWithBlock($f, $block, $biClassBlock, $renameTags, $settingNewsFile)
 
 }
 
-function writeEndext($renameTags, $f){
+function writeEndText($renameTags, $f){
     if(isset($renameTags->endslibi->insertBefore)){
         foreach ($renameTags->endslibi->insertBefore as $lastTag){
             $textStartTag = "\n".$lastTag;
@@ -156,7 +156,7 @@ function writeHeartOfTemplateFile($f, $heartArraysTags, $propertyNewsFile, $rena
         workWithBlock($f, $block, $biClassBlock, $renameTags, $settingNewsFile);
 
     }
-    writeEndext($renameTags, $f);
+    writeEndText($renameTags, $f);
 }
 
 
@@ -189,7 +189,7 @@ function startCreateTemplateNewsFile($sourcesTags, $propertyNewsFile, $renameTag
     startWriteInTemplateFile($f, $sourcesTags, $propertyNewsFile, $renameTags, $settingNewsFile);
 
     fclose($f);
-    echo "\n"."(news) form-row.php is done";
+    echo "\n"."(news) news-template.php is done";
 }
 
 
