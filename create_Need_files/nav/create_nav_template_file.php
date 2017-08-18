@@ -8,8 +8,16 @@
 
 
 
-require_once("create_source_for_nav_template_file.php");
+//require_once("create_source_for_nav_template_file.php");
 
+function writeStartText($renameTags, $f){
+    if(isset($renameTags->startlitbi->insertBefore)){
+        foreach ($renameTags->startlitbi->insertBefore as $festTag){
+            $textStartTag = "\n".$festTag;
+            fwrite($f, $textStartTag);
+        }
+    }
+}
 
 function formTagsForRowFiles($heartArraysTags, $propertyNewsFile){
     $originalBlocks = [];
@@ -36,54 +44,66 @@ function classProperty($tag){
     return $propertyClass[1];
 }
 
-function createSlideForNews($tag, $settingsTags, $biClass, $biClassBlock){
-
-    $propertyClassInRow = classProperty($tag);
-
+function formSelectOrigin($propertyClassInRow, $settingsTags, $biClass, $biClassBlock){
     if(isset($settingsTags->$biClassBlock->$biClass)){
+        $selectTagText = "\n".$settingsTags->$biClassBlock->$biClass[0];
+        $selectTagText .= $propertyClassInRow[0];
+        $selectTagText .= $settingsTags->$biClassBlock->$biClass[1];
+        return $selectTagText;
+    }
+}
 
-        $textTagTextareaInRow = "\n".$settingsTags->$biClassBlock->$biClass[0];
-        $textTagTextareaInRow .= $propertyClassInRow[0];
-        $textTagTextareaInRow .= $settingsTags->$biClassBlock->$biClass[1];
-        return $textTagTextareaInRow;
+function createSlideForNav($tag, $propertyClassInRow, $settingsTags, $biClass, $biClassBlock){
+    if(isset($settingsTags->$biClassBlock->$biClass)){
+        $selectTagText = formSelectOrigin($propertyClassInRow, $settingsTags, $biClass, $biClassBlock);
+        return $selectTagText;
     }
     return $tag;
 
 }
 
-function workWithTagOfLine($tag, $biClass, $biClassBlock, $settingNewsFile){
-
-
-    if ($biClassBlock == "ancbi") {
-
-        $textTag = createSlideForNews($tag, $settingNewsFile, $biClass, $biClassBlock);
+function workWithTagOfLine($tag, $propertyClassInRow, $biClass, $biClassBlock, $settingNavFile){
+    if ($biClass == "ancbi") {
+        $textTag = createSlideForNav($tag, $propertyClassInRow, $settingNavFile, $biClass, $biClassBlock);
+        return $textTag;
 
     }
-
-    return $textTag;
-
 }
 
-function workWithNewLineOfBlock($f, $tag, $biClass, $biClassBlock, $settingNewsFile){
-    if(isset($settingNewsFile->$biClassBlock->$biClass)){
+function workWithNewLineOfBlock($f, $tag, $biClass, $biClassBlock, $settingNavFile, $selected){
+    $propertyClassInRow = classProperty($tag);
+    //$NameClassTag = findBitrixTag($tag, $settingNewsFile->allProperty);
 
-        $textTag = workWithTagOfLine($tag, $biClass, $biClassBlock, $settingNewsFile);
+    if($selected == 1 && $biClass == "ancbi"){
+        $propertyClassInRow[0] .= " selected";
+    }
 
+    if(isset($settingNavFile->$biClassBlock->$biClass)){
+
+        $textTag = workWithTagOfLine($tag, $propertyClassInRow, $biClass, $biClassBlock, $settingNavFile);
 
         fwrite($f, $textTag);
 
     }else{
         $textTag = "\n"."<".$tag.">";
+
         fwrite($f, $textTag);
     }
 
 }
 
-function workWithBlock($f, $block, $biClassBlock, $settingNewsFile){
-    foreach ($block as $newLine){
-        $biClass = findBitrixTag($newLine, $settingNewsFile->$biClassBlock->allProperty);
+function formNewSelectBlock($f, $newLine, $biClass, $biClassBlock, $settingNavFile, $selected){
 
-        //workWithNewLineOfBlock($f, $newLine, $biClass, $biClassBlock, $settingNewsFile);
+
+    workWithNewLineOfBlock($f, $newLine, $biClass, $biClassBlock, $settingNavFile, $selected);
+}
+
+function workWithBlock($f, $block, $biClassBlock, $settingNavFile, $selected){
+    foreach ($block as $newLine){
+        $biClass = findBitrixTag($newLine, $settingNavFile->$biClassBlock->allProperty);
+
+        formNewSelectBlock($f, $newLine, $biClass, $biClassBlock, $settingNavFile, $selected);
+
     }
 
 }
@@ -97,15 +117,21 @@ function writeEndText($renameTags, $f){
     }
 }
 
-function writeHeartOfTemplateFile($f, $heartArraysTags, $renameTags, $propertyNewsFile, $settingNewsFile){
-
-    $originalBlocks = formTagsForRowFiles($heartArraysTags, $propertyNewsFile);
-
+function writeHeartOfTemplateFile($f, $heartArraysTags, $renameTags, $propertyNavFile, $settingNavFile){
+    $originalBlocks = formTagsForRowFiles($heartArraysTags, $propertyNavFile);
     writeStartText($renameTags, $f);
-
     foreach ($originalBlocks as $block){
-        $biClassBlock = findBitrixTag($block[0], $propertyNewsFile);         ///in create_source_for_nav_template_file.php
-        workWithBlock($f, $block, $biClassBlock, $settingNewsFile);
+        $biClassBlock = findBitrixTag($block[0], $propertyNavFile);         ///in create_source_for_nav_template_file.php
+
+        if ($biClassBlock == "litbi") {
+            $textTag = "\n"."<?else:?>";
+            fwrite($f, $textTag);
+            $selected = 1;
+            workWithBlock($f, $block, $biClassBlock, $settingNavFile, $selected);
+        }
+        $selected = 0;
+
+        workWithBlock($f, $block, $biClassBlock, $settingNavFile, $selected);
     }
     writeEndText($renameTags, $f);
 
@@ -113,27 +139,26 @@ function writeHeartOfTemplateFile($f, $heartArraysTags, $renameTags, $propertyNe
 
 
 
-function startWriteInTemplateFile($f, $sourcesTags, $renameTags, $propertyNewsFile, $settingNewsFile){
+function startWriteInTemplateFile($f, $sourcesTags, $renameTags, $propertyNavFile, $settingNavFile){
 
-    writeHeartOfTemplateFile($f, $sourcesTags[1], $renameTags, $propertyNewsFile, $settingNewsFile);
+    writeHeartOfTemplateFile($f, $sourcesTags[1], $renameTags, $propertyNavFile, $settingNavFile);
 
 }
 
 
-function startCreateTemplateNewsFile($sourcesTags, $renameTags, $propertyNewsFile, $settingNewsFile){
+function startCreateTemplateNavFile($sourcesTags, $renameTags, $propertyNavFile, $settingNavFile){
     $f = fopen("template_nav.php", 'w+');
 
-    startWriteInTemplateFile($f, $sourcesTags, $renameTags, $propertyNewsFile, $settingNewsFile);
+    startWriteInTemplateFile($f, $sourcesTags, $renameTags, $propertyNavFile, $settingNavFile);
 
     fclose($f);
-//    echo "\n"."(nav) nav-template.php is done";
+    echo "\n"."(nav) nav-template.php is done";
 }
 
 
-$renameTags = json_decode(file_get_contents ( "text_in_tag_nav.json"));
-
-$sources = sortForTemplateFileNavigate($html, $settingNavFile->allProperty, $configFile->isSoloTag);
-
-startCreateTemplateNewsFile($sources, $renameTags, $settingNavFile->allProperty, $settingNavFile);
-
+//$renameTags = json_decode(file_get_contents ( "text_in_tag_nav.json"));
+//
+//$sources = sortForTemplateFileNavigate($html, $settingNavFile->allProperty, $configFile->isSoloTag);
+//
+//startCreateTemplateNewsFile($sources, $renameTags, $settingNavFile->allProperty, $settingNavFile);
 

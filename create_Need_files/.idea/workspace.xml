@@ -12,21 +12,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="template_nav.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/nav/template_nav.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="create_source_for_nav_template_file.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nav/create_source_for_nav_template_file.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="111" column="2" lean-forward="true" selection-start-line="111" selection-start-column="2" selection-end-line="111" selection-end-column="2" />
+            <state relative-caret-position="1910">
+              <caret line="113" column="65" lean-forward="false" selection-start-line="113" selection-start-column="52" selection-end-line="113" selection-end-column="65" />
               <folding>
                 <element signature="e#6#95#0#PHP" expanded="true" />
               </folding>
@@ -34,23 +24,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create_news_template_file.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/news/create_news_template_file.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-708">
-              <caret line="140" column="0" lean-forward="false" selection-start-line="140" selection-start-column="0" selection-end-line="147" selection-end-column="1" />
-              <folding>
-                <element signature="e#6#95#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create_nav_template_file.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="create_nav_template_file.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nav/create_nav_template_file.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="91">
-              <caret line="86" column="5" lean-forward="true" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
+            <state relative-caret-position="312">
+              <caret line="124" column="0" lean-forward="false" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
               <folding>
                 <element signature="e#6#95#0#PHP" expanded="true" />
               </folding>
@@ -58,23 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="action_file_for_create_nav_files.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/nav/action_file_for_create_nav_files.php">
+      <file leaf-file-name="template_nav.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/nav/template_nav.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="65" lean-forward="true" selection-start-line="14" selection-start-column="65" selection-end-line="14" selection-end-column="65" />
-              <folding>
-                <element signature="e#6#95#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="setting_template_nav.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/nav/setting_template_nav.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="59" lean-forward="true" selection-start-line="5" selection-start-column="59" selection-end-line="5" selection-end-column="59" />
+            <state relative-caret-position="272">
+              <caret line="16" column="9" lean-forward="true" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -83,9 +49,31 @@
       <file leaf-file-name="text_in_tag_nav.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nav/text_in_tag_nav.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="11" lean-forward="false" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="11" />
+            <state relative-caret-position="17">
+              <caret line="1" column="3" lean-forward="false" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="13" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="setting_template_nav.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nav/setting_template_nav.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="8" lean-forward="true" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="action_file_for_create_nav_files.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nav/action_file_for_create_nav_files.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" column="22" lean-forward="false" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+              <folding>
+                <element signature="e#6#95#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -133,10 +121,11 @@
         <option value="$PROJECT_DIR$/news/template_news.php" />
         <option value="$PROJECT_DIR$/nav/tsconfig.json" />
         <option value="$PROJECT_DIR$/nav/text_in_tag_nav.json" />
-        <option value="$PROJECT_DIR$/nav/create_source_for_nav_template_file.php" />
-        <option value="$PROJECT_DIR$/nav/action_file_for_create_nav_files.php" />
         <option value="$PROJECT_DIR$/news/create_news_template_file.php" />
         <option value="$PROJECT_DIR$/nav/setting_template_nav.json" />
+        <option value="$PROJECT_DIR$/nav/create_source_for_nav_template_file.php" />
+        <option value="$PROJECT_DIR$/nav/template_nav.php" />
+        <option value="$PROJECT_DIR$/nav/action_file_for_create_nav_files.php" />
         <option value="$PROJECT_DIR$/nav/create_nav_template_file.php" />
       </list>
     </option>
@@ -168,8 +157,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -212,6 +199,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -235,7 +224,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="PHP Script.create_nav_template_file.php">
+  <component name="RunManager" selected="PHP Script.action_file_for_create_nav_files.php">
     <configuration default="false" name="action_file_for_create_files.php (1)" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/form/action_file_for_create_form_files.php">
       <method />
     </configuration>
@@ -327,10 +316,10 @@
     </list>
     <recent_temporary>
       <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="PHP Script.create_nav_template_file.php" />
-        <item index="1" class="java.lang.String" itemvalue="PHP Script.action_file_for_create_nav_files.php" />
-        <item index="2" class="java.lang.String" itemvalue="PHP Script.action_file_for_create_news_files.php" />
-        <item index="3" class="java.lang.String" itemvalue="PHP Script.create_news_template_file.php" />
+        <item index="0" class="java.lang.String" itemvalue="PHP Script.action_file_for_create_nav_files.php" />
+        <item index="1" class="java.lang.String" itemvalue="PHP Script.create_nav_template_file.php" />
+        <item index="2" class="java.lang.String" itemvalue="PHP Script.create_news_template_file.php" />
+        <item index="3" class="java.lang.String" itemvalue="PHP Script.action_file_for_create_news_files.php" />
       </list>
     </recent_temporary>
   </component>
@@ -358,11 +347,13 @@
       <workItem from="1502261912338" duration="15716000" />
       <workItem from="1502348750560" duration="31457000" />
       <workItem from="1502435358738" duration="8090000" />
+      <workItem from="1502954729514" duration="602000" />
+      <workItem from="1503048822874" duration="15767000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="223402000" />
+    <option name="totallyTimeSpent" value="239777000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="50" y="0" width="1875" height="1040" extended-state="0" />
@@ -373,12 +364,12 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3544576" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3544576" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39957035" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39957035" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -518,7 +509,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="1" lean-forward="false" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -552,52 +542,63 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/news/text_in_tag_news.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="35" column="2" lean-forward="false" selection-start-line="35" selection-start-column="2" selection-end-line="39" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nav/action_file_for_create_nav_files.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="65" lean-forward="true" selection-start-line="14" selection-start-column="65" selection-end-line="14" selection-end-column="65" />
-          <folding>
-            <element signature="e#6#95#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nav/text_in_tag_nav.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="11" lean-forward="false" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nav/setting_template_nav.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="59" lean-forward="true" selection-start-line="5" selection-start-column="59" selection-end-line="5" selection-end-column="59" />
+        <state relative-caret-position="136">
+          <caret line="8" column="23" lean-forward="false" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/news/create_news_template_file.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-708">
-          <caret line="140" column="0" lean-forward="false" selection-start-line="140" selection-start-column="0" selection-end-line="147" selection-end-column="1" />
+        <state relative-caret-position="1989">
+          <caret line="195" column="51" lean-forward="true" selection-start-line="195" selection-start-column="51" selection-end-line="195" selection-end-column="51" />
+          <folding>
+            <element signature="e#6#95#0#PHP" expanded="true" />
+            <marker date="1502444123348" expanded="true" signature="5480:5495" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nav/text_in_tag_nav.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="3" lean-forward="false" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nav/setting_template_nav.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="8" lean-forward="true" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nav/create_source_for_nav_template_file.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1910">
+          <caret line="113" column="65" lean-forward="false" selection-start-line="113" selection-start-column="52" selection-end-line="113" selection-end-column="65" />
           <folding>
             <element signature="e#6#95#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nav/create_source_for_nav_template_file.php">
+    <entry file="file://$PROJECT_DIR$/nav/action_file_for_create_nav_files.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="111" column="2" lean-forward="true" selection-start-line="111" selection-start-column="2" selection-end-line="111" selection-end-column="2" />
+        <state relative-caret-position="357">
+          <caret line="21" column="22" lean-forward="false" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+          <folding>
+            <element signature="e#6#95#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nav/create_nav_template_file.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="124" column="0" lean-forward="false" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
           <folding>
             <element signature="e#6#95#0#PHP" expanded="true" />
           </folding>
@@ -606,19 +607,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nav/template_nav.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="272">
+          <caret line="16" column="9" lean-forward="true" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nav/create_nav_template_file.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="86" column="5" lean-forward="true" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
-          <folding>
-            <element signature="e#6#95#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

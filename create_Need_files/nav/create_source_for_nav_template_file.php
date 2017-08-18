@@ -6,6 +6,7 @@
  * Time: 19:07
  */
 
+
 function findBitrixTag($tag, $propertyNavFile){
 
     preg_match_all ( '/class="([\w]+)/i' , $tag, $potentiallyBitrixClass);
