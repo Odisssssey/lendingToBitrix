@@ -2,7 +2,14 @@
 <project version="4">
   <component name="PublishConfigData">
     <serverData>
-      <paths name="proj">
+      <paths name="AKBREM">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="jquery">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />

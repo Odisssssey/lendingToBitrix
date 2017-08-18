@@ -7,7 +7,7 @@
  */
 
 function createFile($name){
-    $file = $name.".php";
+    $file = $name;
     $f = fopen($file, 'w+');
     return $f;
 }
