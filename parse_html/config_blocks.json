@@ -1,0 +1,17 @@
+{
+  "form": {
+    "start": "form",
+    "finish": "/form",
+    "biclass": "frmbi"
+  },
+  "nav": {
+    "start": "nav",
+    "finish": "/nav",
+    "biclass": "navbi"
+  },
+  "div": {
+    "start": "div",
+    "finish": "/div",
+    "biclass": "newbi"
+  }
+}
