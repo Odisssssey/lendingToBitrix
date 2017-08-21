@@ -147,7 +147,7 @@ function startWriteInTemplateFile($f, $sourcesTags, $renameTags, $propertyNavFil
 
 
 function startCreateTemplateNavFile($sourcesTags, $renameTags, $propertyNavFile, $settingNavFile){
-    $f = fopen("template_nav.php", 'w+');
+    $f = fopen(__DIR__."/template_nav.php", 'w+');
 
     startWriteInTemplateFile($f, $sourcesTags, $renameTags, $propertyNavFile, $settingNavFile);
 

@@ -8,6 +8,18 @@
 
 
 require_once("parse_origin_html.php");
+require_once ("../create_Need_files/nav/action_file_for_create_nav_files.php");
+
+
+function routeBlocks($block){
+    if(nameOfClass($block[0][0]) == "navbi"){
+        actionNavFile($block[0]);   //action_file_for_create_nav_files.php
+    }
+}
+
+
+
+
 
 
 
@@ -26,7 +38,7 @@ $configFile = json_decode(file_get_contents ( "../create_Need_files/config.json"
 
 //todo write in other files
 //foreach ($allBigMegaBlock as $block){
-    var_dump(getMiniBlocks($allBigMegaBlock[0], $configBlocks, $configFile->isSoloTag));
+    routeBlocks(getMiniBlocks($allBigMegaBlock[0], $configBlocks, $configFile->isSoloTag));
 
 //}
 

@@ -37,7 +37,7 @@ function startAction($html, $needMegaBlock){
     return $htmlBlocks;
 }
 
-function isOpenTag($nameTag){
+function isOpenOriginTag($nameTag){
     preg_match_all ( '/[^ ]/i' , $nameTag , $symbolOfWord);
     if($symbolOfWord[0][0] == "/"){
         return 0;
@@ -48,7 +48,7 @@ function isOpenTag($nameTag){
 function BitrixNewsBlock($nameOfTeg, $SoloTags, $tagInStack){
 
     if(count($tagInStack)>0){
-        if(isOpenTag($nameOfTeg)){
+        if(isOpenOriginTag($nameOfTeg)){
 
             if(!in_array($nameOfTeg, $SoloTags)){
                 array_push($tagInStack, $nameOfTeg);
@@ -127,14 +127,16 @@ function getMiniBlocks($block, $configBlocks,  $SoloTags){
 //$html = file_get_contents("http://university.netology.ru/user_data/tarutin/bitrix/fool/index.html");
 //$needMegaBlock = ["/header", "/main"];
 //
-//$allBigMegaBlock = startAction($html, $needMegaBlock);
-
-
 //$configBlocks = json_decode(file_get_contents ( "config_blocks.json"));
 //$configFile = json_decode(file_get_contents ( "../create_Need_files/config.json"));
-//foreach ($allBigMegaBlock as $block){
-//    var_dump(getMiniBlocks($block, $configBlocks, $configFile->isSoloTag));
-//}
+//
+//
+//$allBigMegaBlock = startAction($html, $needMegaBlock);
+//
+//
+////foreach ($allBigMegaBlock as $block){
+//    getMiniBlocks($allBigMegaBlock[2], $configBlocks, $configFile->isSoloTag);
+////}
 
 
 

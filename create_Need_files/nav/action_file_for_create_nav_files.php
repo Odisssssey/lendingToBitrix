@@ -9,17 +9,32 @@
 require_once("create_source_for_nav_template_file.php");
 require_once("create_nav_template_file.php");
 
-$html = file_get_contents("http://university.netology.ru/user_data/tarutin//bitrix/nav/index.html");
+function actionNavFile($html){
 
-$settingNavFile = json_decode(file_get_contents ( "setting_template_nav.json"));
+    $settingNavFile = json_decode(file_get_contents ( __DIR__."/setting_template_nav.json"));
 
-$configFile = json_decode(file_get_contents ( "../config.json"));
 
-$renameTags = json_decode(file_get_contents ( "text_in_tag_nav.json"));
+    $configFile = json_decode(file_get_contents ( __DIR__."/../config.json"));
 
-$sources = sortForTemplateFileNavigate($html, $settingNavFile->allProperty, $configFile->isSoloTag);
+    $renameTags = json_decode(file_get_contents ( __DIR__."/text_in_tag_nav.json"));
 
-startCreateTemplateNavFile($sources, $renameTags, $settingNavFile->allProperty, $settingNavFile);
+    $sources = sortForTemplateFileNavigate($html, $settingNavFile->allProperty, $configFile->isSoloTag);
+
+    startCreateTemplateNavFile($sources, $renameTags, $settingNavFile->allProperty, $settingNavFile);
+}
+
+//$html = file_get_contents("http://university.netology.ru/user_data/tarutin//bitrix/nav/index.html");
+//actionNavFile($html);
+
+//$settingNavFile = json_decode(file_get_contents ( "setting_template_nav.json"));
+//
+//$configFile = json_decode(file_get_contents ( "../config.json"));
+//
+//$renameTags = json_decode(file_get_contents ( "text_in_tag_nav.json"));
+//
+//$sources = sortForTemplateFileNavigate($html, $settingNavFile->allProperty, $configFile->isSoloTag);
+
+//startCreateTemplateNavFile($sources, $renameTags, $settingNavFile->allProperty, $settingNavFile);
 
 
 
