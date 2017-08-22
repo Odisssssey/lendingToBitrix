@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="a45cec12-0753-4866-b7c6-35621601439b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/create_Need_files/config.json" afterPath="$PROJECT_DIR$/create_Need_files/config.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/create_Need_files/nav/action_file_for_create_nav_files.php" afterPath="$PROJECT_DIR$/create_Need_files/nav/action_file_for_create_nav_files.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/create_Need_files/nav/create_source_for_nav_template_file.php" afterPath="$PROJECT_DIR$/create_Need_files/nav/create_source_for_nav_template_file.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/create_Need_files/nav/template_nav.php" afterPath="$PROJECT_DIR$/create_Need_files/nav/template_nav.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/parse_html/parse_and_create_blocks_on_row.php" afterPath="$PROJECT_DIR$/parse_html/parse_and_create_blocks_on_row.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/parse_html/router_blockes.php" afterPath="$PROJECT_DIR$/parse_html/router_blockes.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,8 +33,8 @@
       <file leaf-file-name="router_blockes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/parse_html/router_blockes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="46" column="90" lean-forward="true" selection-start-line="46" selection-start-column="90" selection-end-line="46" selection-end-column="90" />
+            <state relative-caret-position="289">
+              <caret line="20" column="7" lean-forward="true" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
               <folding>
                 <element signature="e#6#95#0#PHP" expanded="true" />
               </folding>
@@ -46,8 +45,8 @@
       <file leaf-file-name="action_file_for_create_nav_files.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/create_Need_files/nav/action_file_for_create_nav_files.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="38" column="23" lean-forward="true" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
+            <state relative-caret-position="391">
+              <caret line="28" column="3" lean-forward="true" selection-start-line="28" selection-start-column="3" selection-end-line="28" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -56,8 +55,8 @@
       <file leaf-file-name="create_source_for_nav_template_file.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/create_Need_files/nav/create_source_for_nav_template_file.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="68" column="22" lean-forward="true" selection-start-line="68" selection-start-column="22" selection-end-line="68" selection-end-column="52" />
+            <state relative-caret-position="527">
+              <caret line="73" column="101" lean-forward="false" selection-start-line="73" selection-start-column="101" selection-end-line="73" selection-end-column="101" />
               <folding>
                 <element signature="e#6#95#0#PHP" expanded="true" />
               </folding>
@@ -70,6 +69,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="391">
               <caret line="23" column="6" lean-forward="true" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="template_nav.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/create_Need_files/nav/template_nav.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -109,12 +118,12 @@
         <option value="$PROJECT_DIR$/parse_html/parse_origin_html.php" />
         <option value="$PROJECT_DIR$/parse_html/parse_html.php" />
         <option value="$PROJECT_DIR$/create_Need_files/nav/example_nav/index.html" />
-        <option value="$PROJECT_DIR$/create_Need_files/nav/create_source_for_nav_template_file.php" />
         <option value="$PROJECT_DIR$/create_Need_files/config.json" />
         <option value="$PROJECT_DIR$/parse_html/parse_and_create_blocks_on_row.php" />
-        <option value="$PROJECT_DIR$/create_Need_files/nav/template_nav.php" />
         <option value="$PROJECT_DIR$/parse_html/router_blockes.php" />
+        <option value="$PROJECT_DIR$/create_Need_files/nav/create_source_for_nav_template_file.php" />
         <option value="$PROJECT_DIR$/create_Need_files/nav/action_file_for_create_nav_files.php" />
+        <option value="$PROJECT_DIR$/create_Need_files/nav/template_nav.php" />
       </list>
     </option>
   </component>
@@ -225,7 +234,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="PHP Script.router_blockes.php">
+  <component name="RunManager" selected="PHP Script.action_file_for_create_nav_files.php">
     <configuration default="false" name="router_blockes.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/parse_html/router_blockes.php">
       <method />
     </configuration>
@@ -317,9 +326,9 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="PHP Script.router_blockes.php" />
-        <item index="1" class="java.lang.String" itemvalue="PHP Script.parse_and_create_blocks_on_row.php" />
-        <item index="2" class="java.lang.String" itemvalue="PHP Script.action_file_for_create_nav_files.php" />
+        <item index="0" class="java.lang.String" itemvalue="PHP Script.action_file_for_create_nav_files.php" />
+        <item index="1" class="java.lang.String" itemvalue="PHP Script.router_blockes.php" />
+        <item index="2" class="java.lang.String" itemvalue="PHP Script.parse_and_create_blocks_on_row.php" />
         <item index="3" class="java.lang.String" itemvalue="PHP Script.create_source_for_nav_template_file.php" />
         <item index="4" class="java.lang.String" itemvalue="PHP Script.parse_origin_html.php" />
       </list>
@@ -337,12 +346,12 @@
       <updated>1503071156609</updated>
       <workItem from="1503071158475" duration="5160000" />
       <workItem from="1503299335426" duration="27155000" />
-      <workItem from="1503385489454" duration="27964000" />
+      <workItem from="1503385489454" duration="29432000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60279000" />
+    <option name="totallyTimeSpent" value="61747000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="95" y="0" width="1824" height="1040" extended-state="0" />
@@ -736,28 +745,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/create_Need_files/nav/template_nav.php">
+    <entry file="file://$PROJECT_DIR$/create_Need_files/nav/create_source_for_nav_template_file.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="7" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/parse_html/router_blockes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="46" column="90" lean-forward="true" selection-start-line="46" selection-start-column="90" selection-end-line="46" selection-end-column="90" />
+        <state relative-caret-position="527">
+          <caret line="73" column="101" lean-forward="false" selection-start-line="73" selection-start-column="101" selection-end-line="73" selection-end-column="101" />
           <folding>
             <element signature="e#6#95#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/create_Need_files/nav/create_source_for_nav_template_file.php">
+    <entry file="file://$PROJECT_DIR$/create_Need_files/nav/template_nav.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="68" column="22" lean-forward="true" selection-start-line="68" selection-start-column="22" selection-end-line="68" selection-end-column="52" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parse_html/router_blockes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="20" column="7" lean-forward="true" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
           <folding>
             <element signature="e#6#95#0#PHP" expanded="true" />
           </folding>
@@ -766,8 +775,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/create_Need_files/nav/action_file_for_create_nav_files.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="38" column="23" lean-forward="true" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
+        <state relative-caret-position="391">
+          <caret line="28" column="3" lean-forward="true" selection-start-line="28" selection-start-column="3" selection-end-line="28" selection-end-column="3" />
           <folding />
         </state>
       </provider>

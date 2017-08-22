@@ -70,7 +70,9 @@ function sortForTemplateFileNavigate($html, $propertyNavFile, $SoloTags){
 
     foreach ($tags[1] as $tag) {
         $nameOriginTag = explode(" ",$tag)[0];
+
         $tagInStack = BitrixNavBlock($tag, $nameOriginTag, $propertyNavFile, $SoloTags, $tagInStack);
+
         $isBitrixBlock = isBitrixBlock($tagInStack);
         if($isBitrixBlock){
             array_push($timesTagsforTemplate, $tag);
@@ -84,6 +86,8 @@ function sortForTemplateFileNavigate($html, $propertyNavFile, $SoloTags){
             array_push($templateTags[0], $tag);
         }
     }
+
+//    var_dump($templateTags);
     echo "\n"."(nav) source array is done";
 
     return $templateTags;

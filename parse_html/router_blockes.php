@@ -13,7 +13,6 @@ require_once ("../create_Need_files/nav/action_file_for_create_nav_files.php");
 
 
 function routeBlocks($block){
-    var_dump($block);
     if(nameOfClass($block[0][0]) == "navbi"){
         actionNavFile(implode("", $block[1]));   //action_file_for_create_nav_files.php
     }
