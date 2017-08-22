@@ -11,8 +11,10 @@
 
 
 function nameOfTag($tag){
-    $nameOfTag = explode(" ",$tag)[0];
-    return $nameOfTag;
+    if(isset(explode(" ",$tag)[0])){
+        $nameOfTag = explode(" ",$tag)[0];
+        return $nameOfTag;
+    }
 }
 
 function getClass($line){
@@ -40,10 +42,15 @@ function tagWithout($html){
 
 function createArrayOnlyTag($line){
     $tags = [];
+    $tagInOneLine = [];
     foreach ($line as $row){
-        preg_match_all ( '/<([^>]+)>/i' ,$row ,$sequence);
+        preg_match_all ('/<([^>]+)>/i' ,$row ,$sequence);
         if(isset($sequence[1][0])){
-            array_push($tags, trim($sequence[1][0]));
+            foreach ($sequence[1] as $randomSymb){
+                array_push($tagInOneLine, trim($randomSymb));
+            }
+            array_push($tags, $tagInOneLine);
+            $tagInOneLine = [];
         }else{
             array_push($tags, " ");
         }
@@ -62,18 +69,16 @@ function startAction($html, $needMegaBlock){
 
     $tags = createArrayOnlyTag($line);
 
-
     foreach($tags as $key=>$tag){
         array_push($htmlBlocks[$position][0], $tag);///tag
         array_push($htmlBlocks[$position][1], $line[$key]);///line
-        $nameOfTag = nameOfTag($tag);
+        $nameOfTag = nameOfTag($tag[0]);
         if(isset($nameOfTag) && isset($needMegaBlock[$position])){
-            if (nameOfTag($tag) == $needMegaBlock[$position]) {
+            if (nameOfTag($tag[0]) == $needMegaBlock[$position]) {
                 $position++;
             }
         }
     }
-
     return $htmlBlocks;
 }
 
@@ -118,52 +123,58 @@ function getMiniBlocks($block, $configBlocks,  $SoloTags){
     $nextMiniBlock = [[],[]];
 
 
-    foreach ($block[0] as $key=>$lain){
-        if($lain == " "){
-            continue;
-        }
 
-        $nameOfTeg = nameOfTag($lain);
+    foreach ($block[0] as $key=>$property){
+        if(is_array($property)) {
+            foreach ($property as $lain) {
+                if ($lain == " ") {
+                    continue;
+                }
+
+                $nameOfTeg = nameOfTag($lain);
+
+                if(array_key_exists($nameOfTeg, $configBlocks)) {
+                    $nameOfClass = nameOfClass($lain);
+                    if($configBlocks->$nameOfTeg->biclass == $nameOfClass){
+                        array_push($tagInStack, $nameOfTeg);
+//                        echo count($tagInStack);
+//                        echo " ".$lain."\n";
+
+                        array_push($nextMiniBlock[0], $lain);
+                        array_push($nextMiniBlock[1], $block[1][$key]);
+                        continue;
+                    }
+
+                }
+
+                $tagInStack = BitrixNewsBlock($nameOfTeg, $SoloTags, $tagInStack);
 
 
-        if(array_key_exists($nameOfTeg, $configBlocks)) {
-            $nameOfClass = nameOfClass($lain);
-            if($configBlocks->$nameOfTeg->biclass == $nameOfClass){
-                array_push($tagInStack, $nameOfTeg);
-//                echo count($tagInStack);
-//                echo " ".$lain."\n";
+                if(isset($isNewMiniBlock)){
+                    $isOldMiniBlock = $isNewMiniBlock;
+//                    echo count($tagInStack);
+//                    echo " ".$lain."\n";
 
-                array_push($nextMiniBlock[0], $lain);
-                array_push($nextMiniBlock[1], $block[1][$key]);
-                continue;
+                    if ($isNewMiniBlock) {
+                        array_push($nextMiniBlock[0], $lain);
+                        array_push($nextMiniBlock[1], $block[1][$key]);
+                    }
+                }
+
+
+                $isNewMiniBlock = isMiniBlock($tagInStack);
+                if(isset($isOldMiniBlock)){
+                    if($isOldMiniBlock == 1 && $isNewMiniBlock == 0){
+                        array_push($allMiniBlocks, $nextMiniBlock);
+                        $nextMiniBlock = [];
+                    }
+                }
+
             }
-
         }
-
-        $tagInStack = BitrixNewsBlock($nameOfTeg,$SoloTags, $tagInStack);
-
-
-        if(isset($isNewMiniBlock)){
-            $isOldMiniBlock = $isNewMiniBlock;
-//            echo count($tagInStack);
-//            echo " ".$lain."\n";
-
-            if ($isNewMiniBlock) {
-                array_push($nextMiniBlock[0], $lain);
-                array_push($nextMiniBlock[1], $block[1][$key]);
-            }
-        }
-
-
-        $isNewMiniBlock = isMiniBlock($tagInStack);
-        if(isset($isOldMiniBlock)){
-            if($isOldMiniBlock == 1 && $isNewMiniBlock == 0){
-                array_push($allMiniBlocks, $nextMiniBlock);
-                $nextMiniBlock = [];
-            }
-        }
-
     }
+
+//    var_dump($allMiniBlocks);
     return $allMiniBlocks;
 }
 
