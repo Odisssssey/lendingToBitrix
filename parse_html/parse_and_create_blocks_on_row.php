@@ -2,12 +2,13 @@
 /**
  * Created by PhpStorm.
  * User: anton.tarutin
- * Date: 18.08.2017
- * Time: 19:29
+ * Date: 22.08.2017
+ * Time: 11:29
  *
+ * new
  *
- * old
  */
+
 
 function nameOfTag($tag){
     $nameOfTag = explode(" ",$tag)[0];
@@ -23,13 +24,48 @@ function nameOfClass($line){
     return  nameOfTag(getClass($line));
 }
 
+function tagWithout($html){
+    $lines = [];
+    preg_match_all ( '/[^\n]+/i' , $html , $line);
+
+
+    foreach ($line[0] as $sequence){
+        if(isset($sequence)){
+            array_push($lines, trim($sequence));
+        }
+    }
+    return $lines;
+
+}
+
+function createArrayOnlyTag($line){
+    $tags = [];
+    foreach ($line as $row){
+        preg_match_all ( '/<([^>]+)>/i' ,$row ,$sequence);
+        if(isset($sequence[1][0])){
+            array_push($tags, trim($sequence[1][0]));
+        }else{
+            array_push($tags, " ");
+        }
+    }
+    return $tags;
+}
+
 
 function startAction($html, $needMegaBlock){
-    $htmlBlocks = [[],[],[]];
+    $htmlBlocks = [[[],[]],[[],[]],[[],[]]];
     $position = 0;
-    preg_match_all ( '/<([^>]+)>/i' , $html , $tags);
-    foreach($tags[1] as $tag){
-        array_push($htmlBlocks[$position], $tag);
+
+    $line = tagWithout($html);
+
+    ///need work with $line[0] it is origin tag!!!
+
+    $tags = createArrayOnlyTag($line);
+
+
+    foreach($tags as $key=>$tag){
+        array_push($htmlBlocks[$position][0], $tag);///tag
+        array_push($htmlBlocks[$position][1], $line[$key]);///line
         $nameOfTag = nameOfTag($tag);
         if(isset($nameOfTag) && isset($needMegaBlock[$position])){
             if (nameOfTag($tag) == $needMegaBlock[$position]) {
@@ -37,6 +73,7 @@ function startAction($html, $needMegaBlock){
             }
         }
     }
+
     return $htmlBlocks;
 }
 
@@ -78,9 +115,14 @@ function isMiniBlock($tagInStack){
 function getMiniBlocks($block, $configBlocks,  $SoloTags){
     $allMiniBlocks = [];
     $tagInStack = [];
-    $nextMiniBlock = [];
+    $nextMiniBlock = [[],[]];
 
-    foreach ($block as $lain){
+
+    foreach ($block[0] as $key=>$lain){
+        if($lain == " "){
+            continue;
+        }
+
         $nameOfTeg = nameOfTag($lain);
 
 
@@ -91,7 +133,8 @@ function getMiniBlocks($block, $configBlocks,  $SoloTags){
 //                echo count($tagInStack);
 //                echo " ".$lain."\n";
 
-                array_push($nextMiniBlock, $lain);
+                array_push($nextMiniBlock[0], $lain);
+                array_push($nextMiniBlock[1], $block[1][$key]);
                 continue;
             }
 
@@ -106,8 +149,8 @@ function getMiniBlocks($block, $configBlocks,  $SoloTags){
 //            echo " ".$lain."\n";
 
             if ($isNewMiniBlock) {
-                array_push($nextMiniBlock, $lain);
-
+                array_push($nextMiniBlock[0], $lain);
+                array_push($nextMiniBlock[1], $block[1][$key]);
             }
         }
 
@@ -122,26 +165,25 @@ function getMiniBlocks($block, $configBlocks,  $SoloTags){
 
     }
     return $allMiniBlocks;
-
-
 }
 
 
-$html = file_get_contents("http://university.netology.ru/user_data/tarutin/bitrix/fool/index.html");
-$needMegaBlock = ["/header", "/main"];
+
+
+
+
+
+//$html = file_get_contents("http://university.netology.ru/user_data/tarutin/bitrix/fool/index.html");
+//
+//$needMegaBlock = ["/header", "/main"];
 //
 //$configBlocks = json_decode(file_get_contents ( "config_blocks.json"));
 //$configFile = json_decode(file_get_contents ( "../create_Need_files/config.json"));
 //
 //
-$allBigMegaBlock = startAction($html, $needMegaBlock);
-var_dump($allBigMegaBlock);
+//$allBigMegaBlock = startAction($html, $needMegaBlock);
 //
 //
-////foreach ($allBigMegaBlock as $block){
-//    getMiniBlocks($allBigMegaBlock[2], $configBlocks, $configFile->isSoloTag);
-////}
-
-
+//getMiniBlocks($allBigMegaBlock[0], $configBlocks, $configFile->isSoloTag);
 
 

@@ -72,8 +72,9 @@ function divideFile($html, $settingRowTags, $SoloTags){
     $tagInStack = [];
     $isBitrixBlock = 0;
 
-    preg_match_all ( '/<([^>]+)>/i' , $html , $tags);
-    foreach ($tags[1] as $keyOriginTag=>$tag){
+
+//    preg_match_all ( '/<([^>]+)>/i' , $html , $tags);
+    foreach ($html as $tag){
 
         $nameOriginTag = explode(" ",$tag)[0];
 
@@ -82,31 +83,38 @@ function divideFile($html, $settingRowTags, $SoloTags){
         $isBitrixBlock = isBitrixBlock($tagInStack);
 
         if($isBitrixBlock){
-            array_push($timesTagsforRow, $tags[1][$keyOriginTag]);
+            array_push($timesTagsforRow, $tag);
 
         }else{
 
             if(count($timesTagsforRow) > 0){
-                array_push($timesTagsforRow, $tags[1][$keyOriginTag]);    //get last tag in block
+                array_push($timesTagsforRow, $tag);    //get last tag in block
                 array_push($templateTags[1], $timesTagsforRow);
                 $timesTagsforRow = [];
                 continue;
             }
 
-            array_push($templateTags[0], $tags[1][$keyOriginTag]);
+            array_push($templateTags[0], $tag);
         }
 
     }
     echo "\n"."(form) tags for files is done";
+//    var_dump($templateTags);
     return $templateTags;
 }
 
 
-
-//$settingFile = json_decode(file_get_contents ( "text_in_tag_form.json"));
+//function herw($html){
+//    preg_match_all ( '/<([^>]+)>/i' , $html , $tags);
+//    return $tags[1];
+//}
+//
+//
+//$settingFile = json_decode(file_get_contents ( "../config.json"));
 //
 //$settingRowTags = json_decode(file_get_contents ( "setting_row_form.json"));
 //
 //$html = file_get_contents("http://university.netology.ru/user_data/tarutin/bitrix/index.html");
 //
-//divideFile($html, $settingRowTags->allProperty, $settingFile->isSoloTag);
+//
+//divideFile(herw($html), $settingRowTags->allProperty, $settingFile->isSoloTag);

@@ -22,10 +22,10 @@ function actionNavFile($html){
 
     startCreateTemplateNavFile($sources, $renameTags, $settingNavFile->allProperty, $settingNavFile);
 }
-
+//
 //$html = file_get_contents("http://university.netology.ru/user_data/tarutin//bitrix/nav/index.html");
-//actionNavFile($html);
-
+////actionNavFile($html);
+//
 //$settingNavFile = json_decode(file_get_contents ( "setting_template_nav.json"));
 //
 //$configFile = json_decode(file_get_contents ( "../config.json"));
@@ -33,7 +33,7 @@ function actionNavFile($html){
 //$renameTags = json_decode(file_get_contents ( "text_in_tag_nav.json"));
 //
 //$sources = sortForTemplateFileNavigate($html, $settingNavFile->allProperty, $configFile->isSoloTag);
-
+//
 //startCreateTemplateNavFile($sources, $renameTags, $settingNavFile->allProperty, $settingNavFile);
 
 

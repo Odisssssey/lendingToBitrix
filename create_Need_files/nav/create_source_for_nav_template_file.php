@@ -5,6 +5,10 @@
  * Date: 10.08.2017
  * Time: 19:07
  */
+
+
+
+
 function findBitrixTag($tag, $propertyNavFile){
     preg_match_all ( '/class="([\w]+)/i' , $tag, $potentiallyBitrixClass);
     if(isset($potentiallyBitrixClass[1][0])){
@@ -13,6 +17,7 @@ function findBitrixTag($tag, $propertyNavFile){
         }
     }
 }
+
 function isBitrixTag($tag, $propertyNavFile){
     if (findBitrixTag($tag, $propertyNavFile) != ""){
         return 1;
@@ -20,6 +25,7 @@ function isBitrixTag($tag, $propertyNavFile){
         return 0;
     }
 }
+
 function isOpenTag($nameTag){
     preg_match_all ( '/[^ ]/i' , $nameTag , $symbolOfWord);
     if($symbolOfWord[0][0] == "/"){
@@ -27,6 +33,10 @@ function isOpenTag($nameTag){
     }
     return 1;
 }
+
+
+
+
 function BitrixNavBlock($tag, $nameOriginTag, $propertyNavFile, $SoloTags, $tagInStack){
     if(isBitrixTag($tag, $propertyNavFile)){
         array_push($tagInStack, $nameOriginTag);
@@ -49,14 +59,16 @@ function isBitrixBlock($tagInStack){
     }
     return 0;
 }
-function sortForTemplateFileNavigate($tags, $propertyNavFile, $SoloTags){
+function sortForTemplateFileNavigate($html, $propertyNavFile, $SoloTags){
     $templateTags = [[], []];
     $timesTagsforTemplate = [];
     $tagInStack = [];
     $isBitrixBlock = 0;
 
-//    preg_match_all ( '/<([^>]+)>/i' , $html , $tags);
-    foreach ($tags as $tag) {
+
+    preg_match_all ( '/<([^>]+)>/i' , $html , $tags);
+
+    foreach ($tags[1] as $tag) {
         $nameOriginTag = explode(" ",$tag)[0];
         $tagInStack = BitrixNavBlock($tag, $nameOriginTag, $propertyNavFile, $SoloTags, $tagInStack);
         $isBitrixBlock = isBitrixBlock($tagInStack);
@@ -73,6 +85,7 @@ function sortForTemplateFileNavigate($tags, $propertyNavFile, $SoloTags){
         }
     }
     echo "\n"."(nav) source array is done";
+
     return $templateTags;
 }
 
@@ -89,12 +102,12 @@ function sortForTemplateFileNavigate($tags, $propertyNavFile, $SoloTags){
 //$settingNavFile = json_decode(file_get_contents ( "setting_template_nav.json"));
 //$configFile = json_decode(file_get_contents ( "../config.json"));
 //
-
-//function herw($html){
-//    preg_match_all ( '/<([^>]+)>/i' , $html , $tags);
-//    return $tags[1];
-//}
-
-
-
+//
+function herw($html){
+    preg_match_all ( '/<([^>]+)>/i' , $html , $tags);
+    return $tags[1];
+}
+//
+//
+//
 //sortForTemplateFileNavigate(herw($html), $settingNavFile->allProperty, $configFile->isSoloTag);

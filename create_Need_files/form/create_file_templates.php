@@ -86,6 +86,12 @@ function startCreateFileTemplate($html, $templateTags, $renameTags){
     echo "\n"."(form) template.php is done";
 }
 
+
+function herw($html){
+    preg_match_all ( '/<([^>]+)>/i' , $html , $tags);
+    return $tags[1];
+}
+
 //
 //$html = file_get_contents("http://university.netology.ru/user_data/tarutin/bitrix/index.html");
 //

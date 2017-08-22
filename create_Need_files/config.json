@@ -1,6 +1,7 @@
 {
   "isSoloTag": [
     "input",
-    "img"
+    "img",
+    "use"
   ]
 }
